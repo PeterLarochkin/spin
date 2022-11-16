@@ -1,8 +1,8 @@
-never f0 {    /* !([] ((boat_free_space<=2))) */
+never f0 {    /* !((0==334)) */
+accept_init:
 T0_init:
 	do
-	:: atomic { (! (((boat_free_space<=2)))) -> assert(!(! (((boat_free_space<=2))))) }
-	:: (1) -> goto T0_init
+	:: atomic { (! (((0==334)))) -> assert(!(! (((0==334))))) }
 	od;
 accept_all:
 	skip

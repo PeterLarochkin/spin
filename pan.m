@@ -20,7 +20,7 @@
 		_m = 3; goto P999;
 
 		 /* CLAIM f0 */
-	case 3: // STATE 1 - _spin_nvr.tmp:3 - [(!((boat_free_space<=2)))] (6:0:0 - 1)
+	case 3: // STATE 1 - _spin_nvr.tmp:4 - [(!((0==334)))] (4:0:0 - 1)
 		
 #if defined(VERI) && !defined(NP)
 #if NCLAIMS>1
@@ -43,226 +43,568 @@
 #endif
 #endif
 		reached[2][1] = 1;
-		if (!( !((((int)now.boat_free_space)<=2))))
+		if (!( !((0==334))))
 			continue;
-		/* merge: assert(!(!((boat_free_space<=2))))(0, 2, 6) */
+		/* merge: assert(!(!((0==334))))(0, 2, 4) */
 		reached[2][2] = 1;
-		spin_assert( !( !((((int)now.boat_free_space)<=2))), " !( !((boat_free_space<=2)))", II, tt, t);
-		/* merge: .(goto)(0, 7, 6) */
-		reached[2][7] = 1;
+		spin_assert( !( !((0==334))), " !( !((0==334)))", II, tt, t);
+		/* merge: .(goto)(0, 5, 4) */
+		reached[2][5] = 1;
 		;
 		_m = 3; goto P999; /* 2 */
-	case 4: // STATE 10 - _spin_nvr.tmp:8 - [-end-] (0:0:0 - 1)
+	case 4: // STATE 8 - _spin_nvr.tmp:8 - [-end-] (0:0:0 - 1)
 		
 #if defined(VERI) && !defined(NP)
 #if NCLAIMS>1
-		{	static int reported10 = 0;
-			if (verbose && !reported10)
+		{	static int reported8 = 0;
+			if (verbose && !reported8)
 			{	int nn = (int) ((Pclaim *)pptr(0))->_n;
 				printf("depth %ld: Claim %s (%d), state %d (line %d)\n",
 					depth, procname[spin_c_typ[nn]], nn, (int) ((Pclaim *)pptr(0))->_p, src_claim[ (int) ((Pclaim *)pptr(0))->_p ]);
-				reported10 = 1;
+				reported8 = 1;
 				fflush(stdout);
 		}	}
 #else
-		{	static int reported10 = 0;
-			if (verbose && !reported10)
+		{	static int reported8 = 0;
+			if (verbose && !reported8)
 			{	printf("depth %d: Claim, state %d (line %d)\n",
 					(int) depth, (int) ((Pclaim *)pptr(0))->_p, src_claim[ (int) ((Pclaim *)pptr(0))->_p ]);
-				reported10 = 1;
+				reported8 = 1;
 				fflush(stdout);
 		}	}
 #endif
 #endif
-		reached[2][10] = 1;
+		reached[2][8] = 1;
 		if (!delproc(1, II)) continue;
 		_m = 3; goto P999; /* 0 */
 
 		 /* PROC P */
-	case 5: // STATE 1 - ref/wedding.pml:81 - [(run Chosed(0))] (0:0:0 - 1)
+	case 5: // STATE 1 - ref/wedding.pml:110 - [turn = 1] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][1] = 1;
+		(trpt+1)->bup.oval = ((int)now.turn);
+		now.turn = 1;
+#ifdef VAR_RANGES
+		logval("turn", ((int)now.turn));
+#endif
+		;
+		_m = 3; goto P999; /* 0 */
+	case 6: // STATE 2 - ref/wedding.pml:110 - [(run Chosed(0))] (0:0:0 - 1)
+		IfNotBlocked
+		reached[1][2] = 1;
 		if (!(addproc(II, 1, 0, 0)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 6: // STATE 2 - ref/wedding.pml:82 - [(run Chosed(1))] (0:0:0 - 1)
+	case 7: // STATE 3 - ref/wedding.pml:111 - [turn = 1] (0:0:1 - 1)
 		IfNotBlocked
-		reached[1][2] = 1;
+		reached[1][3] = 1;
+		(trpt+1)->bup.oval = ((int)now.turn);
+		now.turn = 1;
+#ifdef VAR_RANGES
+		logval("turn", ((int)now.turn));
+#endif
+		;
+		_m = 3; goto P999; /* 0 */
+	case 8: // STATE 4 - ref/wedding.pml:111 - [(run Chosed(1))] (0:0:0 - 1)
+		IfNotBlocked
+		reached[1][4] = 1;
 		if (!(addproc(II, 1, 0, 1)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 7: // STATE 3 - ref/wedding.pml:83 - [(run Chosed(2))] (0:0:0 - 1)
+	case 9: // STATE 5 - ref/wedding.pml:112 - [turn = 1] (0:0:1 - 1)
 		IfNotBlocked
-		reached[1][3] = 1;
+		reached[1][5] = 1;
+		(trpt+1)->bup.oval = ((int)now.turn);
+		now.turn = 1;
+#ifdef VAR_RANGES
+		logval("turn", ((int)now.turn));
+#endif
+		;
+		_m = 3; goto P999; /* 0 */
+	case 10: // STATE 6 - ref/wedding.pml:112 - [(run Chosed(2))] (0:0:0 - 1)
+		IfNotBlocked
+		reached[1][6] = 1;
 		if (!(addproc(II, 1, 0, 2)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 8: // STATE 4 - ref/wedding.pml:84 - [(run Chosed(3))] (0:0:0 - 1)
+	case 11: // STATE 7 - ref/wedding.pml:113 - [turn = 1] (0:0:1 - 1)
 		IfNotBlocked
-		reached[1][4] = 1;
+		reached[1][7] = 1;
+		(trpt+1)->bup.oval = ((int)now.turn);
+		now.turn = 1;
+#ifdef VAR_RANGES
+		logval("turn", ((int)now.turn));
+#endif
+		;
+		_m = 3; goto P999; /* 0 */
+	case 12: // STATE 8 - ref/wedding.pml:113 - [(run Chosed(3))] (0:0:0 - 1)
+		IfNotBlocked
+		reached[1][8] = 1;
 		if (!(addproc(II, 1, 0, 3)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 9: // STATE 8 - ref/wedding.pml:86 - [-end-] (0:0:0 - 1)
+	case 13: // STATE 12 - ref/wedding.pml:115 - [-end-] (0:0:0 - 1)
 		IfNotBlocked
-		reached[1][8] = 1;
+		reached[1][12] = 1;
 		if (!delproc(1, II)) continue;
 		_m = 3; goto P999; /* 0 */
 
 		 /* PROC Chosed */
-	case 10: // STATE 1 - ref/wedding.pml:40 - [((wedding_team[i]==on_boat))] (0:0:0 - 1)
+	case 14: // STATE 1 - ref/wedding.pml:43 - [((turn&&(wedding_team[i]==on_boat)))] (0:0:1 - 1)
 		IfNotBlocked
 		reached[0][1] = 1;
-		if (!((now.wedding_team[ Index(((P0 *)_this)->i, 4) ]==2)))
+		if (!((((int)now.turn)&&(now.wedding_team[ Index(((P0 *)_this)->i, 4) ]==2))))
 			continue;
+		if (TstOnly) return 1; /* TT */
+		/* dead 1: i */  (trpt+1)->bup.oval = ((P0 *)_this)->i;
+#ifdef HAS_CODE
+		if (!readtrail)
+#endif
+			((P0 *)_this)->i = 0;
 		_m = 3; goto P999; /* 0 */
-	case 11: // STATE 2 - ref/wedding.pml:42 - [((boat_direction==0))] (0:0:0 - 1)
+	case 15: // STATE 2 - ref/wedding.pml:45 - [((boat_direction==0))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[0][2] = 1;
 		if (!((((int)now.boat_direction)==0)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 12: // STATE 3 - ref/wedding.pml:44 - [wedding_team[i] = left_bank] (0:26:4 - 1)
+	case 16: // STATE 3 - ref/wedding.pml:48 - [((boat_seats[0]!=-(1)))] (11:0:2 - 1)
 		IfNotBlocked
 		reached[0][3] = 1;
-		(trpt+1)->bup.ovals = grab_ints(4);
-		(trpt+1)->bup.ovals[0] = now.wedding_team[ Index(((P0 *)_this)->i, 4) ];
-		now.wedding_team[ Index(((P0 *)_this)->i, 4) ] = 3;
+		if (!((now.boat_seats[0]!= -(1))))
+			continue;
+		/* merge: wedding_team[boat_seats[0]] = left_bank(11, 4, 11) */
+		reached[0][4] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = now.wedding_team[ Index(now.boat_seats[0], 4) ];
+		now.wedding_team[ Index(now.boat_seats[0], 4) ] = 3;
 #ifdef VAR_RANGES
-		logval("wedding_team[Chosed:i]", now.wedding_team[ Index(((P0 *)_this)->i, 4) ]);
+		logval("wedding_team[boat_seats[0]]", now.wedding_team[ Index(now.boat_seats[0], 4) ]);
 #endif
 		;
-		/* merge: boat_state = 0(26, 4, 26) */
-		reached[0][4] = 1;
-		(trpt+1)->bup.ovals[1] = ((int)now.boat_state);
+		/* merge: boat_seats[0] = -(1)(11, 5, 11) */
+		reached[0][5] = 1;
+		(trpt+1)->bup.ovals[1] = now.boat_seats[0];
+		now.boat_seats[0] =  -(1);
+#ifdef VAR_RANGES
+		logval("boat_seats[0]", now.boat_seats[0]);
+#endif
+		;
+		/* merge: .(goto)(0, 7, 11) */
+		reached[0][7] = 1;
+		;
+		_m = 3; goto P999; /* 3 */
+	case 17: // STATE 8 - ref/wedding.pml:51 - [((boat_seats[1]!=-(1)))] (58:0:6 - 1)
+		IfNotBlocked
+		reached[0][8] = 1;
+		if (!((now.boat_seats[1]!= -(1))))
+			continue;
+		/* merge: wedding_team[boat_seats[1]] = left_bank(58, 9, 58) */
+		reached[0][9] = 1;
+		(trpt+1)->bup.ovals = grab_ints(6);
+		(trpt+1)->bup.ovals[0] = now.wedding_team[ Index(now.boat_seats[1], 4) ];
+		now.wedding_team[ Index(now.boat_seats[1], 4) ] = 3;
+#ifdef VAR_RANGES
+		logval("wedding_team[boat_seats[1]]", now.wedding_team[ Index(now.boat_seats[1], 4) ]);
+#endif
+		;
+		/* merge: boat_seats[1] = -(1)(58, 10, 58) */
+		reached[0][10] = 1;
+		(trpt+1)->bup.ovals[1] = now.boat_seats[1];
+		now.boat_seats[1] =  -(1);
+#ifdef VAR_RANGES
+		logval("boat_seats[1]", now.boat_seats[1]);
+#endif
+		;
+		/* merge: .(goto)(58, 12, 58) */
+		reached[0][12] = 1;
+		;
+		/* merge: boat_state = 0(58, 13, 58) */
+		reached[0][13] = 1;
+		(trpt+1)->bup.ovals[2] = ((int)now.boat_state);
 		now.boat_state = 0;
 #ifdef VAR_RANGES
 		logval("boat_state", ((int)now.boat_state));
 #endif
 		;
-		/* merge: boat_direction = 1(26, 5, 26) */
-		reached[0][5] = 1;
-		(trpt+1)->bup.ovals[2] = ((int)now.boat_direction);
+		/* merge: boat_direction = 1(58, 14, 58) */
+		reached[0][14] = 1;
+		(trpt+1)->bup.ovals[3] = ((int)now.boat_direction);
 		now.boat_direction = 1;
 #ifdef VAR_RANGES
 		logval("boat_direction", ((int)now.boat_direction));
 #endif
 		;
-		/* merge: boat_free_space = (boat_free_space+1)(26, 6, 26) */
-		reached[0][6] = 1;
-		(trpt+1)->bup.ovals[3] = ((int)now.boat_free_space);
-		now.boat_free_space = (((int)now.boat_free_space)+1);
+		/* merge: turn = 0(58, 15, 58) */
+		reached[0][15] = 1;
+		(trpt+1)->bup.ovals[4] = ((int)now.turn);
+		now.turn = 0;
 #ifdef VAR_RANGES
-		logval("boat_free_space", ((int)now.boat_free_space));
+		logval("turn", ((int)now.turn));
 #endif
 		;
-		/* merge: .(goto)(0, 15, 26) */
-		reached[0][15] = 1;
+		/* merge: count = (count+1)(58, 16, 58) */
+		reached[0][16] = 1;
+		(trpt+1)->bup.ovals[5] = now.count;
+		now.count = (now.count+1);
+#ifdef VAR_RANGES
+		logval("count", now.count);
+#endif
 		;
-		/* merge: .(goto)(0, 25, 26) */
-		reached[0][25] = 1;
+		/* merge: .(goto)(0, 35, 58) */
+		reached[0][35] = 1;
+		;
+		/* merge: .(goto)(0, 57, 58) */
+		reached[0][57] = 1;
+		;
+		_m = 3; goto P999; /* 9 */
+	case 18: // STATE 13 - ref/wedding.pml:54 - [boat_state = 0] (0:58:4 - 2)
+		IfNotBlocked
+		reached[0][13] = 1;
+		(trpt+1)->bup.ovals = grab_ints(4);
+		(trpt+1)->bup.ovals[0] = ((int)now.boat_state);
+		now.boat_state = 0;
+#ifdef VAR_RANGES
+		logval("boat_state", ((int)now.boat_state));
+#endif
+		;
+		/* merge: boat_direction = 1(58, 14, 58) */
+		reached[0][14] = 1;
+		(trpt+1)->bup.ovals[1] = ((int)now.boat_direction);
+		now.boat_direction = 1;
+#ifdef VAR_RANGES
+		logval("boat_direction", ((int)now.boat_direction));
+#endif
+		;
+		/* merge: turn = 0(58, 15, 58) */
+		reached[0][15] = 1;
+		(trpt+1)->bup.ovals[2] = ((int)now.turn);
+		now.turn = 0;
+#ifdef VAR_RANGES
+		logval("turn", ((int)now.turn));
+#endif
+		;
+		/* merge: count = (count+1)(58, 16, 58) */
+		reached[0][16] = 1;
+		(trpt+1)->bup.ovals[3] = now.count;
+		now.count = (now.count+1);
+#ifdef VAR_RANGES
+		logval("count", now.count);
+#endif
+		;
+		/* merge: .(goto)(0, 35, 58) */
+		reached[0][35] = 1;
+		;
+		/* merge: .(goto)(0, 57, 58) */
+		reached[0][57] = 1;
 		;
 		_m = 3; goto P999; /* 5 */
-	case 13: // STATE 9 - ref/wedding.pml:52 - [wedding_team[i] = right_bank] (0:26:4 - 1)
+	case 19: // STATE 19 - ref/wedding.pml:64 - [((boat_seats[0]!=-(1)))] (27:0:2 - 1)
 		IfNotBlocked
-		reached[0][9] = 1;
-		(trpt+1)->bup.ovals = grab_ints(4);
-		(trpt+1)->bup.ovals[0] = now.wedding_team[ Index(((P0 *)_this)->i, 4) ];
-		now.wedding_team[ Index(((P0 *)_this)->i, 4) ] = 1;
+		reached[0][19] = 1;
+		if (!((now.boat_seats[0]!= -(1))))
+			continue;
+		/* merge: wedding_team[boat_seats[0]] = right_bank(27, 20, 27) */
+		reached[0][20] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = now.wedding_team[ Index(now.boat_seats[0], 4) ];
+		now.wedding_team[ Index(now.boat_seats[0], 4) ] = 1;
 #ifdef VAR_RANGES
-		logval("wedding_team[Chosed:i]", now.wedding_team[ Index(((P0 *)_this)->i, 4) ]);
+		logval("wedding_team[boat_seats[0]]", now.wedding_team[ Index(now.boat_seats[0], 4) ]);
 #endif
 		;
-		/* merge: boat_direction = 0(26, 10, 26) */
-		reached[0][10] = 1;
-		(trpt+1)->bup.ovals[1] = ((int)now.boat_direction);
+		/* merge: boat_seats[0] = -(1)(27, 21, 27) */
+		reached[0][21] = 1;
+		(trpt+1)->bup.ovals[1] = now.boat_seats[0];
+		now.boat_seats[0] =  -(1);
+#ifdef VAR_RANGES
+		logval("boat_seats[0]", now.boat_seats[0]);
+#endif
+		;
+		/* merge: .(goto)(0, 23, 27) */
+		reached[0][23] = 1;
+		;
+		_m = 3; goto P999; /* 3 */
+	case 20: // STATE 24 - ref/wedding.pml:67 - [((boat_seats[1]!=-(1)))] (58:0:6 - 1)
+		IfNotBlocked
+		reached[0][24] = 1;
+		if (!((now.boat_seats[1]!= -(1))))
+			continue;
+		/* merge: wedding_team[boat_seats[1]] = right_bank(58, 25, 58) */
+		reached[0][25] = 1;
+		(trpt+1)->bup.ovals = grab_ints(6);
+		(trpt+1)->bup.ovals[0] = now.wedding_team[ Index(now.boat_seats[1], 4) ];
+		now.wedding_team[ Index(now.boat_seats[1], 4) ] = 1;
+#ifdef VAR_RANGES
+		logval("wedding_team[boat_seats[1]]", now.wedding_team[ Index(now.boat_seats[1], 4) ]);
+#endif
+		;
+		/* merge: boat_seats[1] = -(1)(58, 26, 58) */
+		reached[0][26] = 1;
+		(trpt+1)->bup.ovals[1] = now.boat_seats[1];
+		now.boat_seats[1] =  -(1);
+#ifdef VAR_RANGES
+		logval("boat_seats[1]", now.boat_seats[1]);
+#endif
+		;
+		/* merge: .(goto)(58, 28, 58) */
+		reached[0][28] = 1;
+		;
+		/* merge: boat_direction = 0(58, 29, 58) */
+		reached[0][29] = 1;
+		(trpt+1)->bup.ovals[2] = ((int)now.boat_direction);
 		now.boat_direction = 0;
 #ifdef VAR_RANGES
 		logval("boat_direction", ((int)now.boat_direction));
 #endif
 		;
-		/* merge: boat_state = 1(26, 11, 26) */
-		reached[0][11] = 1;
-		(trpt+1)->bup.ovals[2] = ((int)now.boat_state);
+		/* merge: boat_state = 1(58, 30, 58) */
+		reached[0][30] = 1;
+		(trpt+1)->bup.ovals[3] = ((int)now.boat_state);
 		now.boat_state = 1;
 #ifdef VAR_RANGES
 		logval("boat_state", ((int)now.boat_state));
 #endif
 		;
-		/* merge: boat_free_space = (boat_free_space+1)(26, 12, 26) */
-		reached[0][12] = 1;
-		(trpt+1)->bup.ovals[3] = ((int)now.boat_free_space);
-		now.boat_free_space = (((int)now.boat_free_space)+1);
+		/* merge: turn = 0(58, 31, 58) */
+		reached[0][31] = 1;
+		(trpt+1)->bup.ovals[4] = ((int)now.turn);
+		now.turn = 0;
 #ifdef VAR_RANGES
-		logval("boat_free_space", ((int)now.boat_free_space));
+		logval("turn", ((int)now.turn));
 #endif
 		;
-		/* merge: .(goto)(0, 15, 26) */
-		reached[0][15] = 1;
+		/* merge: count = (count+1)(58, 32, 58) */
+		reached[0][32] = 1;
+		(trpt+1)->bup.ovals[5] = now.count;
+		now.count = (now.count+1);
+#ifdef VAR_RANGES
+		logval("count", now.count);
+#endif
 		;
-		/* merge: .(goto)(0, 25, 26) */
-		reached[0][25] = 1;
+		/* merge: .(goto)(0, 35, 58) */
+		reached[0][35] = 1;
+		;
+		/* merge: .(goto)(0, 57, 58) */
+		reached[0][57] = 1;
+		;
+		_m = 3; goto P999; /* 9 */
+	case 21: // STATE 29 - ref/wedding.pml:69 - [boat_direction = 0] (0:58:4 - 2)
+		IfNotBlocked
+		reached[0][29] = 1;
+		(trpt+1)->bup.ovals = grab_ints(4);
+		(trpt+1)->bup.ovals[0] = ((int)now.boat_direction);
+		now.boat_direction = 0;
+#ifdef VAR_RANGES
+		logval("boat_direction", ((int)now.boat_direction));
+#endif
+		;
+		/* merge: boat_state = 1(58, 30, 58) */
+		reached[0][30] = 1;
+		(trpt+1)->bup.ovals[1] = ((int)now.boat_state);
+		now.boat_state = 1;
+#ifdef VAR_RANGES
+		logval("boat_state", ((int)now.boat_state));
+#endif
+		;
+		/* merge: turn = 0(58, 31, 58) */
+		reached[0][31] = 1;
+		(trpt+1)->bup.ovals[2] = ((int)now.turn);
+		now.turn = 0;
+#ifdef VAR_RANGES
+		logval("turn", ((int)now.turn));
+#endif
+		;
+		/* merge: count = (count+1)(58, 32, 58) */
+		reached[0][32] = 1;
+		(trpt+1)->bup.ovals[3] = now.count;
+		now.count = (now.count+1);
+#ifdef VAR_RANGES
+		logval("count", now.count);
+#endif
+		;
+		/* merge: .(goto)(0, 35, 58) */
+		reached[0][35] = 1;
+		;
+		/* merge: .(goto)(0, 57, 58) */
+		reached[0][57] = 1;
 		;
 		_m = 3; goto P999; /* 5 */
-	case 14: // STATE 16 - ref/wedding.pml:62 - [(((((wedding_team[i]==left_bank)&&(boat_free_space>0))&&(boat_state==0))&&(boat_direction==1)))] (0:0:0 - 1)
+	case 22: // STATE 36 - ref/wedding.pml:81 - [(((((turn&&(wedding_team[i]==left_bank))&&((boat_seats[0]!=-(1))||(boat_seats[1]!=-(1))))&&(boat_state==0))&&(boat_direction==1)))] (0:0:0 - 1)
 		IfNotBlocked
-		reached[0][16] = 1;
-		if (!(((((now.wedding_team[ Index(((P0 *)_this)->i, 4) ]==3)&&(((int)now.boat_free_space)>0))&&(((int)now.boat_state)==0))&&(((int)now.boat_direction)==1))))
+		reached[0][36] = 1;
+		if (!(((((((int)now.turn)&&(now.wedding_team[ Index(((P0 *)_this)->i, 4) ]==3))&&((now.boat_seats[0]!= -(1))||(now.boat_seats[1]!= -(1))))&&(((int)now.boat_state)==0))&&(((int)now.boat_direction)==1))))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 15: // STATE 17 - ref/wedding.pml:64 - [wedding_team[i] = on_boat] (0:26:2 - 1)
+	case 23: // STATE 37 - ref/wedding.pml:83 - [wedding_team[i] = on_boat] (0:0:1 - 1)
 		IfNotBlocked
-		reached[0][17] = 1;
-		(trpt+1)->bup.ovals = grab_ints(2);
-		(trpt+1)->bup.ovals[0] = now.wedding_team[ Index(((P0 *)_this)->i, 4) ];
+		reached[0][37] = 1;
+		(trpt+1)->bup.oval = now.wedding_team[ Index(((P0 *)_this)->i, 4) ];
 		now.wedding_team[ Index(((P0 *)_this)->i, 4) ] = 2;
 #ifdef VAR_RANGES
 		logval("wedding_team[Chosed:i]", now.wedding_team[ Index(((P0 *)_this)->i, 4) ]);
 #endif
 		;
-		/* merge: boat_free_space = (boat_free_space-1)(26, 18, 26) */
-		reached[0][18] = 1;
-		(trpt+1)->bup.ovals[1] = ((int)now.boat_free_space);
-		now.boat_free_space = (((int)now.boat_free_space)-1);
+		_m = 3; goto P999; /* 0 */
+	case 24: // STATE 38 - ref/wedding.pml:85 - [((boat_seats[0]!=-(1)))] (58:0:2 - 1)
+		IfNotBlocked
+		reached[0][38] = 1;
+		if (!((now.boat_seats[0]!= -(1))))
+			continue;
+		/* merge: boat_seats[0] = i(58, 39, 58) */
+		reached[0][39] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = now.boat_seats[0];
+		now.boat_seats[0] = ((P0 *)_this)->i;
 #ifdef VAR_RANGES
-		logval("boat_free_space", ((int)now.boat_free_space));
+		logval("boat_seats[0]", now.boat_seats[0]);
 #endif
 		;
-		/* merge: .(goto)(0, 25, 26) */
-		reached[0][25] = 1;
+		/* merge: .(goto)(58, 43, 58) */
+		reached[0][43] = 1;
+		;
+		/* merge: turn = 0(58, 44, 58) */
+		reached[0][44] = 1;
+		(trpt+1)->bup.ovals[1] = ((int)now.turn);
+		now.turn = 0;
+#ifdef VAR_RANGES
+		logval("turn", ((int)now.turn));
+#endif
+		;
+		/* merge: .(goto)(0, 57, 58) */
+		reached[0][57] = 1;
+		;
+		_m = 3; goto P999; /* 4 */
+	case 25: // STATE 43 - ref/wedding.pml:89 - [.(goto)] (0:58:1 - 2)
+		IfNotBlocked
+		reached[0][43] = 1;
+		;
+		/* merge: turn = 0(58, 44, 58) */
+		reached[0][44] = 1;
+		(trpt+1)->bup.oval = ((int)now.turn);
+		now.turn = 0;
+#ifdef VAR_RANGES
+		logval("turn", ((int)now.turn));
+#endif
+		;
+		/* merge: .(goto)(0, 57, 58) */
+		reached[0][57] = 1;
 		;
 		_m = 3; goto P999; /* 2 */
-	case 16: // STATE 20 - ref/wedding.pml:71 - [(((((wedding_team[i]==right_bank)&&(boat_free_space>0))&&(boat_state==1))&&(boat_direction==0)))] (0:0:0 - 1)
+	case 26: // STATE 41 - ref/wedding.pml:86 - [boat_seats[1] = i] (0:58:2 - 1)
 		IfNotBlocked
-		reached[0][20] = 1;
-		if (!(((((now.wedding_team[ Index(((P0 *)_this)->i, 4) ]==1)&&(((int)now.boat_free_space)>0))&&(((int)now.boat_state)==1))&&(((int)now.boat_direction)==0))))
+		reached[0][41] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = now.boat_seats[1];
+		now.boat_seats[1] = ((P0 *)_this)->i;
+#ifdef VAR_RANGES
+		logval("boat_seats[1]", now.boat_seats[1]);
+#endif
+		;
+		/* merge: .(goto)(58, 43, 58) */
+		reached[0][43] = 1;
+		;
+		/* merge: turn = 0(58, 44, 58) */
+		reached[0][44] = 1;
+		(trpt+1)->bup.ovals[1] = ((int)now.turn);
+		now.turn = 0;
+#ifdef VAR_RANGES
+		logval("turn", ((int)now.turn));
+#endif
+		;
+		/* merge: .(goto)(0, 57, 58) */
+		reached[0][57] = 1;
+		;
+		_m = 3; goto P999; /* 3 */
+	case 27: // STATE 46 - ref/wedding.pml:95 - [(((((turn&&(wedding_team[i]==right_bank))&&((boat_seats[0]!=-(1))||(boat_seats[1]!=-(1))))&&(boat_state==1))&&(boat_direction==0)))] (0:0:0 - 1)
+		IfNotBlocked
+		reached[0][46] = 1;
+		if (!(((((((int)now.turn)&&(now.wedding_team[ Index(((P0 *)_this)->i, 4) ]==1))&&((now.boat_seats[0]!= -(1))||(now.boat_seats[1]!= -(1))))&&(((int)now.boat_state)==1))&&(((int)now.boat_direction)==0))))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 17: // STATE 21 - ref/wedding.pml:73 - [wedding_team[i] = on_boat] (0:26:2 - 1)
+	case 28: // STATE 47 - ref/wedding.pml:97 - [wedding_team[i] = on_boat] (0:0:1 - 1)
 		IfNotBlocked
-		reached[0][21] = 1;
-		(trpt+1)->bup.ovals = grab_ints(2);
-		(trpt+1)->bup.ovals[0] = now.wedding_team[ Index(((P0 *)_this)->i, 4) ];
+		reached[0][47] = 1;
+		(trpt+1)->bup.oval = now.wedding_team[ Index(((P0 *)_this)->i, 4) ];
 		now.wedding_team[ Index(((P0 *)_this)->i, 4) ] = 2;
 #ifdef VAR_RANGES
 		logval("wedding_team[Chosed:i]", now.wedding_team[ Index(((P0 *)_this)->i, 4) ]);
 #endif
 		;
-		/* merge: boat_free_space = (boat_free_space-1)(26, 22, 26) */
-		reached[0][22] = 1;
-		(trpt+1)->bup.ovals[1] = ((int)now.boat_free_space);
-		now.boat_free_space = (((int)now.boat_free_space)-1);
+		_m = 3; goto P999; /* 0 */
+	case 29: // STATE 48 - ref/wedding.pml:99 - [((boat_seats[0]!=-(1)))] (58:0:2 - 1)
+		IfNotBlocked
+		reached[0][48] = 1;
+		if (!((now.boat_seats[0]!= -(1))))
+			continue;
+		/* merge: boat_seats[0] = i(58, 49, 58) */
+		reached[0][49] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = now.boat_seats[0];
+		now.boat_seats[0] = ((P0 *)_this)->i;
 #ifdef VAR_RANGES
-		logval("boat_free_space", ((int)now.boat_free_space));
+		logval("boat_seats[0]", now.boat_seats[0]);
 #endif
 		;
-		/* merge: .(goto)(0, 25, 26) */
-		reached[0][25] = 1;
+		/* merge: .(goto)(58, 53, 58) */
+		reached[0][53] = 1;
+		;
+		/* merge: turn = 0(58, 54, 58) */
+		reached[0][54] = 1;
+		(trpt+1)->bup.ovals[1] = ((int)now.turn);
+		now.turn = 0;
+#ifdef VAR_RANGES
+		logval("turn", ((int)now.turn));
+#endif
+		;
+		/* merge: .(goto)(0, 57, 58) */
+		reached[0][57] = 1;
+		;
+		_m = 3; goto P999; /* 4 */
+	case 30: // STATE 53 - ref/wedding.pml:103 - [.(goto)] (0:58:1 - 2)
+		IfNotBlocked
+		reached[0][53] = 1;
+		;
+		/* merge: turn = 0(58, 54, 58) */
+		reached[0][54] = 1;
+		(trpt+1)->bup.oval = ((int)now.turn);
+		now.turn = 0;
+#ifdef VAR_RANGES
+		logval("turn", ((int)now.turn));
+#endif
+		;
+		/* merge: .(goto)(0, 57, 58) */
+		reached[0][57] = 1;
 		;
 		_m = 3; goto P999; /* 2 */
-	case 18: // STATE 26 - ref/wedding.pml:77 - [-end-] (0:0:0 - 6)
+	case 31: // STATE 51 - ref/wedding.pml:100 - [boat_seats[1] = i] (0:58:2 - 1)
 		IfNotBlocked
-		reached[0][26] = 1;
+		reached[0][51] = 1;
+		(trpt+1)->bup.ovals = grab_ints(2);
+		(trpt+1)->bup.ovals[0] = now.boat_seats[1];
+		now.boat_seats[1] = ((P0 *)_this)->i;
+#ifdef VAR_RANGES
+		logval("boat_seats[1]", now.boat_seats[1]);
+#endif
+		;
+		/* merge: .(goto)(58, 53, 58) */
+		reached[0][53] = 1;
+		;
+		/* merge: turn = 0(58, 54, 58) */
+		reached[0][54] = 1;
+		(trpt+1)->bup.ovals[1] = ((int)now.turn);
+		now.turn = 0;
+#ifdef VAR_RANGES
+		logval("turn", ((int)now.turn));
+#endif
+		;
+		/* merge: .(goto)(0, 57, 58) */
+		reached[0][57] = 1;
+		;
+		_m = 3; goto P999; /* 3 */
+	case 32: // STATE 58 - ref/wedding.pml:106 - [-end-] (0:0:0 - 6)
+		IfNotBlocked
+		reached[0][58] = 1;
 		if (!delproc(1, II)) continue;
 		_m = 3; goto P999; /* 0 */
 	case  _T5:	/* np_ */

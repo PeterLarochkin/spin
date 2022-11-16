@@ -1,0 +1,9 @@
+never f0 {    /* !((1==334)) */
+accept_init:
+T0_init:
+	do
+	:: atomic { (! (((1==334)))) -> assert(!(! (((1==334))))) }
+	od;
+accept_all:
+	skip
+}

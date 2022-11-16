@@ -1,0 +1,9 @@
+never f0 {    /* !([] ((boat_free_space<=2))) */
+T0_init:
+	do
+	:: atomic { (! (((boat_free_space<=2)))) -> assert(!(! (((boat_free_space<=2))))) }
+	:: (1) -> goto T0_init
+	od;
+accept_all:
+	skip
+}

@@ -25,13 +25,23 @@ A находится рядом с B, если
 
 */
 
-# define SUCCESS (wedding[0] == right_bank) && (wedding[1] == right_bank) && (wedding[2] == right_bank) && (wedding[3] == right_bank)
+// поставить acceptance
+
+#define SUCCESS (wedding[0] == right_bank) && \
+				(wedding[1] == right_bank) && \
+				(wedding[2] == right_bank) && \
+				(wedding[3] == right_bank) && \
+				(wedding[4] == right_bank) && \
+				(wedding[5] == right_bank)
+
+
 
 mtype {left_bank, on_boat, right_bank}
-// bool turn = false;
+
 int boat_seats[2] = -1;
 bool boat_state = false; // false -- left, true -- right
-mtype wedding[4] = left_bank;
+bool is_boat_in_center = false;
+mtype wedding[6] = left_bank;
 bool turn = true;
 bool local_turn = true;
 byte count = 0;
@@ -133,11 +143,10 @@ proctype Chosed(int pair_index; bool isWoman) {
 	
 	:: 	atomic { 	
 			turn && !isWoman &&  // если никто ничего не делает и являюсь женихом
-			(wedding[pair_index] == on_boat) // если я в лодке 
+			(wedding[pair_index] == on_boat) // если я в лодке (на берегу)
 			-> turn = false 
 		}; 
-		// поехал на другой берег и взял другого человека
-		// присваивание boat_state внутри if чтобы быть уверенным, что лодка поехала с людьми
+		
 		if 
 		:: boat_seats[0] != -1 && boat_seats[1] != -1 -> 
 			local_turn = true;
@@ -223,24 +232,16 @@ proctype Chosed(int pair_index; bool isWoman) {
 	od
 }
 
-active proctype P() { 
-
-	run Chosed(0, false);
-	run Chosed(0, true);
-	run Chosed(2, false);
-	run Chosed(2, true);
-
-}
+active proctype P1() { run Chosed(0, false) }
+active proctype P2() { run Chosed(0, true)  }
+active proctype P3() { run Chosed(2, false) }
+active proctype P4() { run Chosed(2, true)  }
+active proctype P5() { run Chosed(4, false) }
+active proctype P6() { run Chosed(4, true)  }
 
 
 
-ltl { !(always (!SUCCESS)) }
 
 
+ltl f0 { !always (!SUCCESS) }
 
-// Spin/Src/spin -a ref/wedding.pml 
-// gcc pan.c -o pan
-// ./pan -a -N
-
-// rm pan* || Spin/Src/spin -a ref/wedding.pml && gcc pan.c -o pan && gcc pan.c -o pan && ./pan -a -N f1 
-// cat wedding.pml.trail 

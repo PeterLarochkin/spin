@@ -1,7 +1,0 @@
-never ltl_0 {    /* !(! ([] ((((! ((wedding[0]==right_bank))) && ((wedding[1]==right_bank))) && ((wedding[2]==right_bank))) && ((wedding[3]==right_bank))))) */
-accept_init:
-T0_init:
-	do
-	:: (((((! ((wedding[0]==right_bank))) && ((wedding[1]==right_bank))) && ((wedding[2]==right_bank))) && ((wedding[3]==right_bank)))) -> goto T0_init
-	od;
-}

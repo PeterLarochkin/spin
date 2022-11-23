@@ -491,53 +491,39 @@ int _;	/* predefined write-only variable */
 #endif
 
 short src_ln2 [] = {
-	  0,   4,   4,   4,   3,   6,   3,   7, 
-	  8,   0, };
+	  0,   4,   4,   3,   6,   3,   6,   0, };
 S_F_MAP src_file2 [] = {
 	{ "-", 0, 0 },
-	{ "_spin_nvr.tmp", 1, 8 },
-	{ "-", 9, 10 }
+	{ "_spin_nvr.tmp", 1, 6 },
+	{ "-", 7, 8 }
 };
 short *src_claim;
 uchar reached2 [] = {
-	  0,   1,   0,   1,   0,   1,   1,   1, 
-	  0,   0, };
+	  0,   1,   1,   0,   1,   1,   0,   0, };
 uchar *loopstate2;
 
 short src_ln1 [] = {
-	  0, 104, 105, 106, 107, 103, 109, 103, 
-	109,   0, };
+	  0,  47,  48,  49,  50,  52,   0, };
 S_F_MAP src_file1 [] = {
 	{ "-", 0, 0 },
-	{ "wedding.pml", 1, 8 },
-	{ "-", 9, 10 }
+	{ "wedding.pml", 1, 5 },
+	{ "-", 6, 7 }
 };
 uchar reached1 [] = {
-	  0,   1,   1,   1,   1,   0,   1,   1, 
-	  0,   0, };
+	  0,   0,   0,   0,   0,   0,   0, };
 uchar *loopstate1;
 
 short src_ln0 [] = {
-	  0,  43,  45,  48,  48,  48,  47,  50, 
-	 51,  51,  51,  50,  54,  54,  55,  56, 
-	 57,  60,  63,  63,  63,  62,  65,  66, 
-	 66,  66,  65,  68,  68,  69,  70,  71, 
-	 44,  75,  78,  80,  82,  82,  83,  83, 
-	 81,  85,  85,  90,  92,  94,  94,  95, 
-	 95,  93,  97,  97,  42, 100, 100,   0, };
+	  0,  38,  38,  38,  38,  38,  40,  40, 
+	 40,  40,  40,  37,  43,  37,  43,   0, };
 S_F_MAP src_file0 [] = {
 	{ "-", 0, 0 },
-	{ "wedding.pml", 1, 54 },
-	{ "-", 55, 56 }
+	{ "wedding.pml", 1, 14 },
+	{ "-", 15, 16 }
 };
 uchar reached0 [] = {
-	  0,   1,   1,   1,   0,   0,   0,   1, 
-	  1,   0,   0,   0,   1,   0,   0,   0, 
-	  0,   1,   1,   0,   0,   0,   1,   1, 
-	  0,   0,   0,   1,   0,   0,   0,   0, 
-	  0,   1,   1,   0,   1,   0,   1,   0, 
-	  0,   1,   0,   1,   0,   1,   0,   1, 
-	  0,   0,   1,   0,   0,   1,   0,   0, };
+	  0,   1,   0,   1,   0,   0,   1,   0, 
+	  1,   0,   0,   0,   1,   1,   0,   0, };
 uchar *loopstate0;
 uchar reached3[3];  /* np_ */
 uchar *loopstate3;  /* np_ */
@@ -565,7 +551,7 @@ short Air[] = {  (short) Air0, (short) Air1, (short) Air2, (short) Air3 };
 char *procname[] = {
    "Chosed",
    "P",
-   "f0",
+   "ltl_0",
    ":np_:",
 	0
 };
@@ -575,7 +561,7 @@ enum btypes { NONE=0, N_CLAIM=1, I_PROC=2, A_PROC=3, P_PROC=4, E_TRACE=5, N_TRAC
 int Btypes[] = {
    4,	/* Chosed */
    3,	/* P */
-   1,	/* f0 */
+   1,	/* ltl_0 */
    0	/* :np_: */
 };
 
@@ -848,13 +834,13 @@ addproc(int calling_pid, int priority, int n, int par0)
 		reached3[0] = 1;
 		accpstate[3][1] = 1;
 		break;
-	case 2:	/* f0 */
+	case 2:	/* ltl_0 */
 		((P2 *)pptr(h))->_t = 2;
-		((P2 *)pptr(h))->_p = 4;
+		((P2 *)pptr(h))->_p = 3;
 #ifdef HAS_PRIORITY
 		((P2 *)pptr(h))->_priority = priority; /* was: 1 */
 #endif
-		reached2[4]=1;
+		reached2[3]=1;
 		src_claim = src_ln2;
 		/* params: */
 		/* locals: */
@@ -866,26 +852,24 @@ addproc(int calling_pid, int priority, int n, int par0)
 		break;
 	case 1:	/* P */
 		((P1 *)pptr(h))->_t = 1;
-		((P1 *)pptr(h))->_p = 5;
+		((P1 *)pptr(h))->_p = 1;
 #ifdef HAS_PRIORITY
 		((P1 *)pptr(h))->_priority = priority; /* was: 1 */
 #endif
-		reached1[5]=1;
+		reached1[1]=1;
 		/* params: */
 		/* locals: */
-#ifdef VAR_RANGES
-#endif
 #ifdef HAS_CODE
 		locinit1(h);
 #endif
 		break;
 	case 0:	/* Chosed */
 		((P0 *)pptr(h))->_t = 0;
-		((P0 *)pptr(h))->_p = 52;
+		((P0 *)pptr(h))->_p = 11;
 #ifdef HAS_PRIORITY
 		((P0 *)pptr(h))->_priority = priority; /* was: 1 */
 #endif
-		reached0[52]=1;
+		reached0[11]=1;
 		/* params: */
 		((P0 *)pptr(h))->i = par0;
 		/* locals: */
@@ -1049,8 +1033,7 @@ run(void)
 	if ((Maxbody % WS) != 0)
 		Maxbody += WS - (Maxbody % WS);
 
-	accpstate[2][7] = 1;
-	accpstate[2][4] = 1;
+	accpstate[2][3] = 1;
 	retrans(0, _nstates0, _start0, src_ln0, reached0, loopstate0);
 	retrans(1, _nstates1, _start1, src_ln1, reached1, loopstate1);
 	retrans(2, _nstates2, _start2, src_ln2, reached2, loopstate2);
@@ -12401,39 +12384,21 @@ do_reach(void)
 void
 iniglobals(int calling_pid)
 {
-		now.boat_state = 0;
-		now.boat_direction = 1;
-		now.turn = 0;
+		now.turn = 1;
 	{	int l_in;
 		for (l_in = 0; l_in < 4; l_in++)
 		{
-			now.wedding_team[l_in] = 3;
+			now.wedding[l_in] = 3;
 		}
 	}
-	{	int l_in;
-		for (l_in = 0; l_in < 2; l_in++)
-		{
-			now.boat_seats[l_in] =  -(1);
-		}
-	}
-		now.count = 0;
 #ifdef VAR_RANGES
-		logval("boat_state", now.boat_state);
-		logval("boat_direction", now.boat_direction);
 		logval("turn", now.turn);
 	{	int l_in;
 		for (l_in = 0; l_in < 4; l_in++)
 		{
-			logval("wedding_team[l_in]", now.wedding_team[l_in]);
+			logval("wedding[l_in]", now.wedding[l_in]);
 		}
 	}
-	{	int l_in;
-		for (l_in = 0; l_in < 2; l_in++)
-		{
-			logval("boat_seats[l_in]", now.boat_seats[l_in]);
-		}
-	}
-		logval("count", now.count);
 #endif
 }
 
@@ -14137,18 +14102,9 @@ c_globals(void)
 	{	int l_in;
 		for (l_in = 0; l_in < 4; l_in++)
 		{
-			printf("	mtype  wedding_team[%d]:	%d\n", l_in, now.wedding_team[l_in]);
+			printf("	mtype  wedding[%d]:	%d\n", l_in, now.wedding[l_in]);
 		}
 	}
-	printf("	bit    boat_state:	%d\n", now.boat_state);
-	printf("	bit    boat_direction:	%d\n", now.boat_direction);
-	{	int l_in;
-		for (l_in = 0; l_in < 2; l_in++)
-		{
-			printf("	int    boat_seats[%d]:	%d\n", l_in, now.boat_seats[l_in]);
-		}
-	}
-	printf("	int    count:	%d\n", now.count);
 	printf("	bit    turn:	%d\n", now.turn);
 }
 void
@@ -14184,7 +14140,7 @@ c_chandump(int unused)
 {	unused++; /* avoid complaints */
 }
 
-Trans *t_id_lkup[70];
+Trans *t_id_lkup[25];
 
 
 #ifdef BFS_PAR

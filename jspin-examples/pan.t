@@ -24,110 +24,52 @@ settable(void)
 
 	trans = (Trans ***) emalloc(4*sizeof(Trans **));
 
-	/* proctype 2: f0 */
+	/* proctype 2: ltl_0 */
 
-	trans[2] = (Trans **) emalloc(9*sizeof(Trans *));
+	trans[2] = (Trans **) emalloc(7*sizeof(Trans *));
 
-	trans[2][5]	= settr(66,0,4,1,0,".(goto)", 0, 2, 0);
-	T = trans[2][4] = settr(65,0,0,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(65,0,3,0,0,"DO", 0, 2, 0);
-	T = trans[ 2][3] = settr(64,2,0,0,0,"ATOMIC", 0, 2, 0);
-	T->nxt	= settr(64,2,1,0,0,"ATOMIC", 0, 2, 0);
-	trans[2][1]	= settr(62,0,4,3,3,"(!((0==334)))", 0, 2, 0); /* m: 2 -> 4,0 */
-	reached2[2] = 1;
-	trans[2][2]	= settr(0,0,0,0,0,"assert(!(!((0==334))))",0,0,0);
-	trans[2][6]	= settr(67,0,7,1,0,"break", 0, 2, 0);
-	trans[2][7]	= settr(68,0,8,1,0,"(1)", 0, 2, 0);
-	trans[2][8]	= settr(69,0,0,4,4,"-end-", 0, 3500, 0);
+	trans[2][4]	= settr(22,0,3,1,0,".(goto)", 0, 2, 0);
+	T = trans[2][3] = settr(21,0,0,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(21,0,1,0,0,"DO", 0, 2, 0);
+	trans[2][1]	= settr(19,0,3,3,0,"((((!((wedding[0]==right_bank))&&(wedding[1]==right_bank))&&(wedding[2]==right_bank))&&(wedding[3]==right_bank)))", 1, 2, 0);
+	trans[2][2]	= settr(20,0,3,1,0,"goto T0_init", 0, 2, 0);
+	trans[2][5]	= settr(23,0,6,1,0,"break", 0, 2, 0);
+	trans[2][6]	= settr(24,0,0,4,4,"-end-", 0, 3500, 0);
 
 	/* proctype 1: P */
 
-	trans[1] = (Trans **) emalloc(9*sizeof(Trans *));
+	trans[1] = (Trans **) emalloc(6*sizeof(Trans *));
 
-	trans[1][6]	= settr(59,0,5,1,0,".(goto)", 0, 2, 0);
-	T = trans[1][5] = settr(58,0,0,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(58,0,1,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(58,0,2,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(58,0,3,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(58,0,4,0,0,"DO", 0, 2, 0);
-	trans[1][1]	= settr(54,0,5,5,5,"(run Chosed(0))", 0, 2, 0);
-	trans[1][2]	= settr(55,0,5,6,6,"(run Chosed(1))", 0, 2, 0);
-	trans[1][3]	= settr(56,0,5,7,7,"(run Chosed(2))", 0, 2, 0);
-	trans[1][4]	= settr(57,0,5,8,8,"(run Chosed(3))", 0, 2, 0);
-	trans[1][7]	= settr(60,0,8,1,0,"break", 0, 2, 0);
-	trans[1][8]	= settr(61,0,0,9,9,"-end-", 0, 3500, 0);
+	trans[1][1]	= settr(14,0,2,5,5,"(run Chosed(0))", 0, 2, 0);
+	trans[1][2]	= settr(15,0,3,6,6,"(run Chosed(1))", 0, 2, 0);
+	trans[1][3]	= settr(16,0,4,7,7,"(run Chosed(2))", 0, 2, 0);
+	trans[1][4]	= settr(17,0,5,8,8,"(run Chosed(3))", 0, 2, 0);
+	trans[1][5]	= settr(18,0,0,9,9,"-end-", 0, 3500, 0);
 
 	/* proctype 0: Chosed */
 
-	trans[0] = (Trans **) emalloc(55*sizeof(Trans *));
+	trans[0] = (Trans **) emalloc(15*sizeof(Trans *));
 
-	T = trans[0][52] = settr(51,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(51,0,1,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(51,0,34,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(51,0,43,0,0,"IF", 0, 2, 0);
-	trans[0][1]	= settr(0,0,32,10,10,"((turn&&(wedding_team[i]==on_boat)))", 1, 2, 0);
-	T = trans[0][32] = settr(31,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(31,0,2,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(31,0,17,0,0,"IF", 0, 2, 0);
-	trans[0][2]	= settr(1,0,6,11,0,"((boat_direction==0))", 1, 2, 0);
-	T = trans[0][6] = settr(5,0,0,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(5,0,3,0,0,"IF", 0, 2, 0);
-	trans[0][3]	= settr(2,0,4,12,0,"((boat_seats[0]!=-(1)))", 1, 2, 0);
-	trans[0][4]	= settr(3,0,5,13,13,"wedding_team[boat_seats[0]] = left_bank", 1, 2, 0);
-	trans[0][5]	= settr(4,0,11,14,14,"boat_seats[0] = -(1)", 1, 2, 0);
-	trans[0][7]	= settr(6,0,11,1,0,".(goto)", 0, 2, 0);
-	T = trans[0][11] = settr(10,0,0,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(10,0,8,0,0,"IF", 0, 2, 0);
-	trans[0][8]	= settr(7,0,9,15,0,"((boat_seats[1]!=-(1)))", 1, 2, 0);
-	trans[0][9]	= settr(8,0,10,16,16,"wedding_team[boat_seats[1]] = left_bank", 1, 2, 0);
-	trans[0][10]	= settr(9,0,13,17,17,"boat_seats[1] = -(1)", 1, 2, 0);
-	trans[0][12]	= settr(11,0,13,1,0,".(goto)", 0, 2, 0);
-	trans[0][13]	= settr(12,0,14,18,18,"boat_state = 0", 1, 2, 0);
-	trans[0][14]	= settr(13,0,15,19,19,"boat_direction = 1", 1, 2, 0);
-	trans[0][15]	= settr(14,0,16,20,20,"turn = 0", 1, 2, 0);
-	trans[0][16]	= settr(15,0,54,21,21,"count = (count+1)", 1, 2, 0);
-	trans[0][33]	= settr(32,0,54,1,0,".(goto)", 0, 2, 0);
-	trans[0][17]	= settr(16,0,21,2,0,"else", 0, 2, 0);
-	T = trans[0][21] = settr(20,0,0,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(20,0,18,0,0,"IF", 0, 2, 0);
-	trans[0][18]	= settr(17,0,19,22,0,"((boat_seats[0]!=-(1)))", 1, 2, 0);
-	trans[0][19]	= settr(18,0,20,23,23,"wedding_team[boat_seats[0]] = right_bank", 1, 2, 0);
-	trans[0][20]	= settr(19,0,26,24,24,"boat_seats[0] = -(1)", 1, 2, 0);
-	trans[0][22]	= settr(21,0,26,1,0,".(goto)", 0, 2, 0);
-	T = trans[0][26] = settr(25,0,0,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(25,0,23,0,0,"IF", 0, 2, 0);
-	trans[0][23]	= settr(22,0,24,25,0,"((boat_seats[1]!=-(1)))", 1, 2, 0);
-	trans[0][24]	= settr(23,0,25,26,26,"wedding_team[boat_seats[1]] = right_bank", 1, 2, 0);
-	trans[0][25]	= settr(24,0,28,27,27,"boat_seats[1] = -(1)", 1, 2, 0);
-	trans[0][27]	= settr(26,0,28,1,0,".(goto)", 0, 2, 0);
-	trans[0][28]	= settr(27,0,29,28,28,"boat_direction = 0", 1, 2, 0);
-	trans[0][29]	= settr(28,0,30,29,29,"boat_state = 1", 1, 2, 0);
-	trans[0][30]	= settr(29,0,31,30,30,"turn = 0", 1, 2, 0);
-	trans[0][31]	= settr(30,0,54,31,31,"count = (count+1)", 1, 2, 0);
-	trans[0][53]	= settr(52,0,54,1,0,".(goto)", 0, 2, 0);
-	trans[0][34]	= settr(33,0,35,32,0,"(((((turn&&(wedding_team[i]==left_bank))&&((boat_seats[0]!=-(1))||(boat_seats[1]!=-(1))))&&(boat_state==0))&&(boat_direction==1)))", 1, 2, 0);
-	trans[0][35]	= settr(34,0,40,33,33,"wedding_team[i] = on_boat", 1, 2, 0);
-	T = trans[0][40] = settr(39,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(39,0,36,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(39,0,38,0,0,"IF", 0, 2, 0);
-	trans[0][36]	= settr(35,0,37,34,0,"((boat_seats[0]!=-(1)))", 1, 2, 0);
-	trans[0][37]	= settr(36,0,42,35,35,"boat_seats[0] = i", 1, 2, 0);
-	trans[0][41]	= settr(40,0,42,1,0,".(goto)", 0, 2, 0);
-	trans[0][38]	= settr(37,0,39,2,0,"else", 0, 2, 0);
-	trans[0][39]	= settr(38,0,42,36,36,"boat_seats[1] = i", 1, 2, 0);
-	trans[0][42]	= settr(41,0,54,37,37,"turn = 0", 1, 2, 0);
-	trans[0][43]	= settr(42,0,44,38,0,"(((((turn&&(wedding_team[i]==right_bank))&&((boat_seats[0]!=-(1))||(boat_seats[1]!=-(1))))&&(boat_state==1))&&(boat_direction==0)))", 1, 2, 0);
-	trans[0][44]	= settr(43,0,49,39,39,"wedding_team[i] = on_boat", 1, 2, 0);
-	T = trans[0][49] = settr(48,0,0,0,0,"IF", 0, 2, 0);
-	T = T->nxt	= settr(48,0,45,0,0,"IF", 0, 2, 0);
-	    T->nxt	= settr(48,0,47,0,0,"IF", 0, 2, 0);
-	trans[0][45]	= settr(44,0,46,40,0,"((boat_seats[0]!=-(1)))", 1, 2, 0);
-	trans[0][46]	= settr(45,0,51,41,41,"boat_seats[0] = i", 1, 2, 0);
-	trans[0][50]	= settr(49,0,51,1,0,".(goto)", 0, 2, 0);
-	trans[0][47]	= settr(46,0,48,2,0,"else", 0, 2, 0);
-	trans[0][48]	= settr(47,0,51,42,42,"boat_seats[1] = i", 1, 2, 0);
-	trans[0][51]	= settr(50,0,54,43,43,"turn = 0", 1, 2, 0);
-	trans[0][54]	= settr(53,0,0,44,44,"-end-", 0, 3500, 0);
+	trans[0][12]	= settr(11,0,11,1,0,".(goto)", 0, 2, 0);
+	T = trans[0][11] = settr(10,0,0,0,0,"DO", 0, 2, 0);
+	T = T->nxt	= settr(10,0,3,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(10,0,8,0,0,"DO", 0, 2, 0);
+	T = trans[ 0][3] = settr(2,2,0,0,0,"ATOMIC", 1, 2, 0);
+	T->nxt	= settr(2,2,1,0,0,"ATOMIC", 1, 2, 0);
+	trans[0][1]	= settr(0,4,4,10,10,"(((wedding[i]==left_bank)&&turn))", 1, 2, 0); /* m: 2 -> 4,0 */
+	reached0[2] = 1;
+	trans[0][2]	= settr(0,0,0,0,0,"turn = 0",0,0,0);
+	trans[0][4]	= settr(3,0,5,11,11,"wedding[i] = on_boat", 1, 2, 0);
+	trans[0][5]	= settr(4,0,11,12,12,"turn = 1", 1, 2, 0);
+	T = trans[ 0][8] = settr(7,2,0,0,0,"ATOMIC", 1, 2, 0);
+	T->nxt	= settr(7,2,6,0,0,"ATOMIC", 1, 2, 0);
+	trans[0][6]	= settr(5,4,9,13,13,"(((wedding[i]==on_boat)&&turn))", 1, 2, 0); /* m: 7 -> 9,0 */
+	reached0[7] = 1;
+	trans[0][7]	= settr(0,0,0,0,0,"turn = 0",0,0,0);
+	trans[0][9]	= settr(8,0,10,14,14,"wedding[i] = right_bank", 1, 2, 0);
+	trans[0][10]	= settr(9,0,11,15,15,"turn = 1", 1, 2, 0);
+	trans[0][13]	= settr(12,0,14,1,0,"break", 0, 2, 0);
+	trans[0][14]	= settr(13,0,0,16,16,"-end-", 0, 3500, 0);
 	/* np_ demon: */
 	trans[_NP_] = (Trans **) emalloc(3*sizeof(Trans *));
 	T = trans[_NP_][0] = settr(9997,0,1,_T5,0,"(np_)", 1,2,0);

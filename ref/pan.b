@@ -53,52 +53,177 @@
 		goto R999;
 
 		 /* PROC Chosed */
+
+	case 10: // STATE 1
+		;
+	/* 0 */	((P0 *)_this)->i = trpt->bup.oval;
+		;
+		;
+		goto R999;
 ;
 		;
 		;
 		;
 		
-	case 12: // STATE 6
+	case 13: // STATE 4
 		;
-		now.boat_free_space = trpt->bup.ovals[3];
-		now.boat_direction = trpt->bup.ovals[2];
-		now.boat_state = trpt->bup.ovals[1];
-		now.wedding_team[ Index(((P0 *)_this)->i, 4) ] = trpt->bup.ovals[0];
+		now.wedding_team[ Index(now.boat_seats[0], 4) ] = trpt->bup.oval;
 		;
-		ungrab_ints(trpt->bup.ovals, 4);
 		goto R999;
 
-	case 13: // STATE 12
+	case 14: // STATE 5
 		;
-		now.boat_free_space = trpt->bup.ovals[3];
-		now.boat_state = trpt->bup.ovals[2];
-		now.boat_direction = trpt->bup.ovals[1];
-		now.wedding_team[ Index(((P0 *)_this)->i, 4) ] = trpt->bup.ovals[0];
+		now.boat_seats[0] = trpt->bup.oval;
 		;
-		ungrab_ints(trpt->bup.ovals, 4);
 		goto R999;
 ;
 		;
 		
-	case 15: // STATE 18
+	case 16: // STATE 9
 		;
-		now.boat_free_space = trpt->bup.ovals[1];
-		now.wedding_team[ Index(((P0 *)_this)->i, 4) ] = trpt->bup.ovals[0];
+		now.wedding_team[ Index(now.boat_seats[1], 4) ] = trpt->bup.oval;
 		;
-		ungrab_ints(trpt->bup.ovals, 2);
-		goto R999;
-;
-		;
-		
-	case 17: // STATE 22
-		;
-		now.boat_free_space = trpt->bup.ovals[1];
-		now.wedding_team[ Index(((P0 *)_this)->i, 4) ] = trpt->bup.ovals[0];
-		;
-		ungrab_ints(trpt->bup.ovals, 2);
 		goto R999;
 
-	case 18: // STATE 26
+	case 17: // STATE 10
+		;
+		now.boat_seats[1] = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 18: // STATE 13
+		;
+		now.boat_state = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 19: // STATE 14
+		;
+		now.boat_direction = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 20: // STATE 15
+		;
+		now.turn = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 21: // STATE 16
+		;
+		now.count = trpt->bup.oval;
+		;
+		goto R999;
+;
+		;
+		
+	case 23: // STATE 19
+		;
+		now.wedding_team[ Index(now.boat_seats[0], 4) ] = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 24: // STATE 20
+		;
+		now.boat_seats[0] = trpt->bup.oval;
+		;
+		goto R999;
+;
+		;
+		
+	case 26: // STATE 24
+		;
+		now.wedding_team[ Index(now.boat_seats[1], 4) ] = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 27: // STATE 25
+		;
+		now.boat_seats[1] = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 28: // STATE 28
+		;
+		now.boat_direction = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 29: // STATE 29
+		;
+		now.boat_state = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 30: // STATE 30
+		;
+		now.turn = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 31: // STATE 31
+		;
+		now.count = trpt->bup.oval;
+		;
+		goto R999;
+;
+		;
+		
+	case 33: // STATE 35
+		;
+		now.wedding_team[ Index(((P0 *)_this)->i, 4) ] = trpt->bup.oval;
+		;
+		goto R999;
+;
+		;
+		
+	case 35: // STATE 37
+		;
+		now.boat_seats[0] = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 36: // STATE 39
+		;
+		now.boat_seats[1] = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 37: // STATE 42
+		;
+		now.turn = trpt->bup.oval;
+		;
+		goto R999;
+;
+		;
+		
+	case 39: // STATE 44
+		;
+		now.wedding_team[ Index(((P0 *)_this)->i, 4) ] = trpt->bup.oval;
+		;
+		goto R999;
+;
+		;
+		
+	case 41: // STATE 46
+		;
+		now.boat_seats[0] = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 42: // STATE 48
+		;
+		now.boat_seats[1] = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 43: // STATE 51
+		;
+		now.turn = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 44: // STATE 54
 		;
 		p_restor(II);
 		;

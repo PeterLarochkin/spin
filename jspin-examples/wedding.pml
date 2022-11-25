@@ -25,8 +25,6 @@ A находится рядом с B, если
 
 */
 
-// поставить acceptance
-
 #define SUCCESS (wedding[0] == right_bank) && \
 				(wedding[1] == right_bank) && \
 				(wedding[2] == right_bank) && \
@@ -105,7 +103,7 @@ proctype Chosed(int pair_index; bool isWoman) {
 		/* 
 		Нужно проверить перед выходом в открытую часть
 		1. В лодке нет чужих женихов или есть мой жених
-		2. На берегу выполняются условия (невесты одни 2.1 или каждая невеста не видит другого жениха на том же берегу 2.2)
+		2. На берегу выполняются условия (если невеста на берегу без жениха, то она должна не видеть другого жениха на том же берегу 2.2)
 		*/
 		local_turn = true;
 		
@@ -116,20 +114,11 @@ proctype Chosed(int pair_index; bool isWoman) {
 			wedding[4] != on_boat ||
 			wedding[pair_index] == on_boat) && 
 		    (
-				// /* 2.1 */
-				// !boat_state && 
-				// (wedding[0] != left_bank && 
-				// wedding[2] != left_bank && 
-				// wedding[4] != left_bank) ||
 
-				// boat_state && 
-				// (wedding[0] != right_bank && 
-				// wedding[2] != right_bank && 
-				// wedding[4] != right_bank) ||
 
 				/* 2.2 */
 				!boat_state && 
-				/* ladies here  then boy needed too*/
+
 				(
 					(!(wedding[1] == left_bank && wedding[0] != left_bank) /*->*/ || (wedding[2] != left_bank)&&(wedding[4] != left_bank)) && 
 				 	(!(wedding[3] == left_bank && wedding[2] != left_bank) /*->*/ || (wedding[0] != left_bank)&&(wedding[4] != left_bank)) && 
@@ -137,7 +126,7 @@ proctype Chosed(int pair_index; bool isWoman) {
 				) ||
 
 				 boat_state && 
-				/* ladies here  then boy needed too*/
+
 				(
 					(!(wedding[1] == right_bank && wedding[0] != right_bank) /*->*/ || (wedding[2] != right_bank)&&(wedding[4] != right_bank)) && 
 				 	(!(wedding[3] == right_bank && wedding[2] != right_bank) /*->*/ || (wedding[0] != right_bank)&&(wedding[4] != right_bank)) && 
@@ -154,20 +143,10 @@ proctype Chosed(int pair_index; bool isWoman) {
 			wedding[4] != on_boat ||
 			wedding[pair_index] == on_boat) && 
 		    (
-				// /* 2.1 */
-				// !boat_state && 
-				// (wedding[0] != left_bank && 
-				// wedding[2] != left_bank && 
-				// wedding[4] != left_bank) ||
-
-				// boat_state && 
-				// (wedding[0] != right_bank && 
-				// wedding[2] != right_bank && 
-				// wedding[4] != right_bank) ||
 
 				/* 2.2 */
 				!boat_state && 
-				/* ladies here  then boy needed too*/
+
 				(
 					(!(wedding[1] == left_bank && wedding[0] != left_bank) /*->*/ || (wedding[2] != left_bank)&&(wedding[4] != left_bank)) && 
 				 	(!(wedding[3] == left_bank && wedding[2] != left_bank) /*->*/ || (wedding[0] != left_bank)&&(wedding[4] != left_bank)) && 
@@ -175,7 +154,7 @@ proctype Chosed(int pair_index; bool isWoman) {
 				) ||
 
 				 boat_state && 
-				/* ladies here  then boy needed too*/
+
 				(
 					(!(wedding[1] == right_bank && wedding[0] != right_bank) /*->*/ || (wedding[2] != right_bank)&&(wedding[4] != right_bank)) && 
 				 	(!(wedding[3] == right_bank && wedding[2] != right_bank) /*->*/ || (wedding[0] != right_bank)&&(wedding[4] != right_bank)) && 
@@ -200,7 +179,7 @@ proctype Chosed(int pair_index; bool isWoman) {
 		/* 
 		Нужно проверить перед выходом в открытую часть
 		1. В лодке нет чужих невест или есть мой невеста 
-		2. На берегу выполняются условия (невесты одни 2.1 или каждая невеста не видит другого жениха на том же берегу 2.2)
+		2. На берегу выполняются условия (если невеста на берегу без жениха, то она должна не видеть другого жениха на том же берегу 2.2)
 		*/
 		local_turn = true;
 		if 
@@ -210,70 +189,49 @@ proctype Chosed(int pair_index; bool isWoman) {
 			wedding[5] != on_boat ||
 			wedding[pair_index + 1] == on_boat) && 
 		    (
-				/* 2.1 */
-				!boat_state && 
-				(wedding[0] != left_bank && 
-				wedding[2] != left_bank && 
-				wedding[4] != left_bank) ||
-
-				boat_state && 
-				(wedding[0] != right_bank && 
-				wedding[2] != right_bank && 
-				wedding[4] != right_bank) ||
 
 				/* 2.2 */
 				!boat_state && 
-				/* ladies here  then boy needed too*/
+				
 				(
-					(!(wedding[1] == left_bank) /*->*/ || (wedding[2] != left_bank)&&(wedding[4] != left_bank)) && 
-				 	(!(wedding[3] == left_bank) /*->*/ || (wedding[0] != left_bank)&&(wedding[4] != left_bank)) && 
-				 	(!(wedding[5] == left_bank) /*->*/ || (wedding[0] != left_bank)&&(wedding[2] != left_bank))
+					(!(wedding[1] == left_bank && wedding[0] != left_bank) /*->*/ || (wedding[2] != left_bank)&&(wedding[4] != left_bank)) && 
+				 	(!(wedding[3] == left_bank && wedding[2] != left_bank) /*->*/ || (wedding[0] != left_bank)&&(wedding[4] != left_bank)) && 
+				 	(!(wedding[5] == left_bank && wedding[4] != left_bank) /*->*/ || (wedding[0] != left_bank)&&(wedding[2] != left_bank))
 				) ||
 
 				 boat_state && 
-				/* ladies here  then boy needed too*/
+				
 				(
-					(!(wedding[1] == right_bank) /*->*/ || (wedding[2] != right_bank)&&(wedding[4] != right_bank)) && 
-				 	(!(wedding[3] == right_bank) /*->*/ || (wedding[0] != right_bank)&&(wedding[4] != right_bank)) && 
-				 	(!(wedding[5] == right_bank) /*->*/ || (wedding[0] != right_bank)&&(wedding[2] != right_bank))
+					(!(wedding[1] == right_bank && wedding[0] != right_bank) /*->*/ || (wedding[2] != right_bank)&&(wedding[4] != right_bank)) && 
+				 	(!(wedding[3] == right_bank && wedding[2] != right_bank) /*->*/ || (wedding[0] != right_bank)&&(wedding[4] != right_bank)) && 
+				 	(!(wedding[5] == right_bank && wedding[4] != right_bank) /*->*/ || (wedding[0] != right_bank)&&(wedding[2] != right_bank))
 				) 
 			) -> 
 				is_boat_in_center = true;
 				local_turn = true;
 				turn = true;
 		
-		/*высаживаем обратно на нужный берег*/
+		/*else, высаживаем обратно на нужный берег*/
 		:: !local_turn && (wedding[1] != on_boat && 
 			wedding[3] != on_boat && 
 			wedding[5] != on_boat ||
 			wedding[pair_index + 1] == on_boat) && 
 		    (
-				/* 2.1 */
-				!boat_state && 
-				(wedding[0] != left_bank && 
-				wedding[2] != left_bank && 
-				wedding[4] != left_bank) ||
-
-				boat_state && 
-				(wedding[0] != right_bank && 
-				wedding[2] != right_bank && 
-				wedding[4] != right_bank) ||
-
 				/* 2.2 */
 				!boat_state && 
-				/* ladies here  then boy needed too*/
+				
 				(
-					(!(wedding[1] == left_bank) /*->*/ || (wedding[2] != left_bank)&&(wedding[4] != left_bank)) && 
-				 	(!(wedding[3] == left_bank) /*->*/ || (wedding[0] != left_bank)&&(wedding[4] != left_bank)) && 
-				 	(!(wedding[5] == left_bank) /*->*/ || (wedding[0] != left_bank)&&(wedding[2] != left_bank))
+					(!(wedding[1] == left_bank && wedding[0] != left_bank) /*->*/ || (wedding[2] != left_bank)&&(wedding[4] != left_bank)) && 
+				 	(!(wedding[3] == left_bank && wedding[2] != left_bank) /*->*/ || (wedding[0] != left_bank)&&(wedding[4] != left_bank)) && 
+				 	(!(wedding[5] == left_bank && wedding[4] != left_bank) /*->*/ || (wedding[0] != left_bank)&&(wedding[2] != left_bank))
 				) ||
 
 				 boat_state && 
-				/* ladies here  then boy needed too*/
+				
 				(
-					(!(wedding[1] == right_bank) /*->*/ || (wedding[2] != right_bank)&&(wedding[4] != right_bank)) && 
-				 	(!(wedding[3] == right_bank) /*->*/ || (wedding[0] != right_bank)&&(wedding[4] != right_bank)) && 
-				 	(!(wedding[5] == right_bank) /*->*/ || (wedding[0] != right_bank)&&(wedding[2] != right_bank))
+					(!(wedding[1] == right_bank && wedding[0] != right_bank) /*->*/ || (wedding[2] != right_bank)&&(wedding[4] != right_bank)) && 
+				 	(!(wedding[3] == right_bank && wedding[2] != right_bank) /*->*/ || (wedding[0] != right_bank)&&(wedding[4] != right_bank)) && 
+				 	(!(wedding[5] == right_bank && wedding[4] != right_bank) /*->*/ || (wedding[0] != right_bank)&&(wedding[2] != right_bank))
 				) 
 			) -> 
 			if 
@@ -372,7 +330,7 @@ proctype Chosed(int pair_index; bool isWoman) {
 				fi;
 				local_turn = true;
 				turn = true;
-		/*вернуть всех на место как будто ничего не было */
+		/*else, вернуть всех на место как будто ничего не было */
 		:: !local_turn &&
 			(
 				!boat_state &&
@@ -479,7 +437,7 @@ proctype Chosed(int pair_index; bool isWoman) {
 		   	(
 				/* 2.2 */
 				!boat_state && 
-				/* ladies here  then boy needed too*/
+				
 				(
 					(!(wedding[1] == on_boat) /*->*/ || (wedding[2] != right_bank)&&(wedding[4] != right_bank)) && 
 				 	(!(wedding[3] == on_boat) /*->*/ || (wedding[0] != right_bank)&&(wedding[4] != right_bank)) && 
@@ -487,7 +445,7 @@ proctype Chosed(int pair_index; bool isWoman) {
 				) ||
 
 				 boat_state && 
-				/* ladies here  then boy needed too*/
+				
 				(
 					(!(wedding[1] == on_boat) /*->*/ || (wedding[2] != left_bank)&&(wedding[4] != left_bank)) && 
 				 	(!(wedding[3] == on_boat) /*->*/ || (wedding[0] != left_bank)&&(wedding[4] != left_bank)) && 
@@ -495,7 +453,7 @@ proctype Chosed(int pair_index; bool isWoman) {
 				) 
 			)
 		   ) ->
-		   if 
+		   		if 
 				:: boat_seats[0] != -1 && boat_seats[1] != -1 -> 
 					local_turn = true;
 					if 
@@ -547,7 +505,7 @@ proctype Chosed(int pair_index; bool isWoman) {
 				fi;
 				local_turn = true;
 				turn = true;
-		/*вернуть всех на место как будто ничего не было */
+		/*по сути else, вернуть всех на место как будто ничего не было */
 		:: !local_turn && (!((wedding[0]==on_boat) || (wedding[2]==on_boat) || (wedding[4]==on_boat)) /*->*/ ||
 		   	(
 				(!boat_state && 
@@ -566,7 +524,7 @@ proctype Chosed(int pair_index; bool isWoman) {
 		   	(
 				/* 2.2 */
 				!boat_state && 
-				/* ladies here  then boy needed too*/
+				
 				(
 					(!(wedding[1] == on_boat) /*->*/ || (wedding[2] != right_bank)&&(wedding[4] != right_bank)) && 
 				 	(!(wedding[3] == on_boat) /*->*/ || (wedding[0] != right_bank)&&(wedding[4] != right_bank)) && 
@@ -574,7 +532,7 @@ proctype Chosed(int pair_index; bool isWoman) {
 				) ||
 
 				 boat_state && 
-				/* ladies here  then boy needed too*/
+				
 				(
 					(!(wedding[1] == on_boat) /*->*/ || (wedding[2] != left_bank)&&(wedding[4] != left_bank)) && 
 				 	(!(wedding[3] == on_boat) /*->*/ || (wedding[0] != left_bank)&&(wedding[4] != left_bank)) && 
@@ -641,9 +599,16 @@ active proctype P6() { run Chosed(4, true)  }
 
 
 
+// 1. Можно переправить всех на правый берег.
+// ltl f0 { !always (!SUCCESS) } /* passed */
 
+// 2. Можно переправить всех на правый берег за 11 плаваний.
+// ltl f1 { !always (!(SUCCESS) && (count != 11)) } /* passed */
 
-ltl f0 { true == !always (!SUCCESS) }
-// ltl f1 { false == !always (!(SUCCESS && (count == 10))) }
-// ltl f1 { true == !always (!(SUCCESS && (count == 11))) }
+// 3. Можно переправить всех на правый берег за 10 плаваний.
+// ltl f2 { !always (!(SUCCESS) && (count!=10) ) } /* not passed */
+
+// 4. Чтобы всем переправиться на правый берег, обязательно нужно в некоторый момент времени расположить всех женихов рядом, и всех невест - далеко от них.
+
+// ltl f3 { (!always (true)) until SUCCESS }
 

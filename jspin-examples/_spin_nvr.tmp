@@ -1,9 +1,7 @@
-never f1 {    /* !((1==!(334))) */
+never f1 {    /* !(! ([] ((! (((((((wedding[0]==right_bank)) && ((wedding[1]==right_bank))) && ((wedding[2]==right_bank))) && ((wedding[3]==right_bank))) && ((wedding[4]==right_bank))) && ((wedding[5]==right_bank)))) && ((count!=11))))) */
 accept_init:
 T0_init:
 	do
-	:: atomic { (! (((1==!(334))))) -> assert(!(! (((1==!(334)))))) }
+	:: (((! (((((((wedding[0]==right_bank)) && ((wedding[1]==right_bank))) && ((wedding[2]==right_bank))) && ((wedding[3]==right_bank))) && ((wedding[4]==right_bank))) && ((wedding[5]==right_bank)))) && ((count!=11)))) -> goto T0_init
 	od;
-accept_all:
-	skip
 }

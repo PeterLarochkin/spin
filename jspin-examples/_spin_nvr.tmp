@@ -1,7 +1,9 @@
-never f1 {    /* !(! ([] ((! (((((((wedding[0]==right_bank)) && ((wedding[1]==right_bank))) && ((wedding[2]==right_bank))) && ((wedding[3]==right_bank))) && ((wedding[4]==right_bank))) && ((wedding[5]==right_bank)))) && ((count!=11))))) */
-accept_init:
+never f2 {    /* !([] (! (((((((((wedding[0]==right_bank)) && ((wedding[1]==right_bank))) && ((wedding[2]==right_bank))) && ((wedding[3]==right_bank))) && ((wedding[4]==right_bank))) && ((wedding[5]==right_bank))) && ((count==10))) && (final)))) */
 T0_init:
 	do
-	:: (((! (((((((wedding[0]==right_bank)) && ((wedding[1]==right_bank))) && ((wedding[2]==right_bank))) && ((wedding[3]==right_bank))) && ((wedding[4]==right_bank))) && ((wedding[5]==right_bank)))) && ((count!=11)))) -> goto T0_init
+	:: atomic { (! ((! (((((((((wedding[0]==right_bank)) && ((wedding[1]==right_bank))) && ((wedding[2]==right_bank))) && ((wedding[3]==right_bank))) && ((wedding[4]==right_bank))) && ((wedding[5]==right_bank))) && ((count==10))) && (final))))) -> assert(!(! ((! (((((((((wedding[0]==right_bank)) && ((wedding[1]==right_bank))) && ((wedding[2]==right_bank))) && ((wedding[3]==right_bank))) && ((wedding[4]==right_bank))) && ((wedding[5]==right_bank))) && ((count==10))) && (final)))))) }
+	:: (1) -> goto T0_init
 	od;
+accept_all:
+	skip
 }

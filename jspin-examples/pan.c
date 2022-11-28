@@ -73,6 +73,10 @@ globinit(void)
 #endif
 	*proc_offset, *q_offset;
 void
+locinit7(int h)
+{
+}
+void
 locinit6(int h)
 {
 }
@@ -506,8 +510,22 @@ int _;	/* predefined write-only variable */
 	#define Index(x, y)	x
 #endif
 
+short src_ln7 [] = {
+	  0,   3,   3,   3,   4,   4,   2,   6, 
+	  2,   7,   8,   0, };
+S_F_MAP src_file7 [] = {
+	{ "-", 0, 0 },
+	{ "_spin_nvr.tmp", 1, 10 },
+	{ "-", 11, 12 }
+};
+short *src_claim;
+uchar reached7 [] = {
+	  0,   1,   0,   1,   1,   1,   0,   1, 
+	  1,   1,   0,   0, };
+uchar *loopstate7;
+
 short src_ln6 [] = {
-	  0, 598, 598,   0, };
+	  0, 607, 607,   0, };
 S_F_MAP src_file6 [] = {
 	{ "-", 0, 0 },
 	{ "wedding.pml", 1, 2 },
@@ -518,7 +536,7 @@ uchar reached6 [] = {
 uchar *loopstate6;
 
 short src_ln5 [] = {
-	  0, 597, 597,   0, };
+	  0, 606, 606,   0, };
 S_F_MAP src_file5 [] = {
 	{ "-", 0, 0 },
 	{ "wedding.pml", 1, 2 },
@@ -529,7 +547,7 @@ uchar reached5 [] = {
 uchar *loopstate5;
 
 short src_ln4 [] = {
-	  0, 596, 596,   0, };
+	  0, 605, 605,   0, };
 S_F_MAP src_file4 [] = {
 	{ "-", 0, 0 },
 	{ "wedding.pml", 1, 2 },
@@ -540,7 +558,7 @@ uchar reached4 [] = {
 uchar *loopstate4;
 
 short src_ln3 [] = {
-	  0, 595, 595,   0, };
+	  0, 604, 604,   0, };
 S_F_MAP src_file3 [] = {
 	{ "-", 0, 0 },
 	{ "wedding.pml", 1, 2 },
@@ -551,7 +569,7 @@ uchar reached3 [] = {
 uchar *loopstate3;
 
 short src_ln2 [] = {
-	  0, 594, 594,   0, };
+	  0, 603, 603,   0, };
 S_F_MAP src_file2 [] = {
 	{ "-", 0, 0 },
 	{ "wedding.pml", 1, 2 },
@@ -562,7 +580,7 @@ uchar reached2 [] = {
 uchar *loopstate2;
 
 short src_ln1 [] = {
-	  0, 593, 593,   0, };
+	  0, 602, 602,   0, };
 S_F_MAP src_file1 [] = {
 	{ "-", 0, 0 },
 	{ "wedding.pml", 1, 2 },
@@ -573,60 +591,63 @@ uchar reached1 [] = {
 uchar *loopstate1;
 
 short src_ln0 [] = {
-	  0,  58,  60,  51,  62,  63,  65,  65, 
-	 65,  66,  66,  66,  67,  67,  67,  64, 
-	 69,  69,  70,  80,  82,  73,  84,  85, 
-	 87,  87,  87,  88,  88,  88,  89,  89, 
-	 89,  86,  91,  91,  92,  98,  99,  95, 
-	108, 133, 136, 137, 138, 161, 165, 165, 
-	165, 165, 166, 166, 166, 166, 164, 168, 
-	110, 171, 174, 175, 171, 184, 207, 210, 
-	211, 212, 234, 238, 238, 238, 238, 239, 
-	239, 239, 237, 241, 185, 243, 246, 247, 
-	243, 254, 278, 282, 283, 285, 286, 287, 
-	288, 289, 290, 291, 292, 284, 294, 294, 
-	295, 296, 297, 298, 299, 300, 301, 303, 
-	304, 305, 306, 307, 308, 302, 310, 310, 
-	311, 312, 313, 314, 315, 316, 318, 319, 
-	320, 321, 322, 323, 317, 325, 325, 326, 
-	327, 328, 329, 281, 331, 331, 332, 356, 
-	360, 361, 363, 364, 365, 366, 367, 368, 
-	369, 370, 362, 372, 372, 373, 374, 375, 
-	376, 377, 379, 380, 381, 382, 383, 384, 
-	378, 386, 386, 387, 388, 389, 390, 392, 
-	393, 394, 395, 396, 397, 391, 399, 399, 
-	400, 401, 359, 403, 403, 404, 255, 408, 
-	411, 412, 408, 420, 452, 457, 458, 460, 
-	461, 462, 463, 464, 465, 466, 467, 459, 
-	469, 469, 470, 471, 472, 473, 474, 475, 
-	476, 478, 479, 480, 481, 482, 483, 477, 
-	485, 485, 486, 487, 488, 489, 490, 491, 
-	493, 494, 495, 496, 497, 498, 492, 500, 
-	500, 501, 502, 503, 504, 456, 506, 506, 
-	507, 539, 544, 545, 547, 548, 549, 550, 
-	551, 552, 553, 554, 546, 556, 556, 557, 
-	558, 559, 560, 561, 563, 564, 565, 566, 
-	567, 568, 562, 570, 570, 571, 572, 573, 
-	574, 576, 577, 578, 579, 580, 581, 575, 
-	583, 583, 584, 585, 543, 587, 587, 588, 
-	421, 590,  49, 591,  49, 591,   0, };
+	  0,  52,  53,  52,  54,  63,  65,  56, 
+	 68,  69,  71,  71,  71,  72,  72,  72, 
+	 73,  73,  73,  70,  75,  75,  76,  67, 
+	 87,  89,  80,  92,  93,  95,  95,  95, 
+	 96,  96,  96,  97,  97,  97,  94,  99, 
+	 99, 100,  91, 107, 108, 104, 117, 142, 
+	145, 146, 147, 170, 174, 174, 174, 174, 
+	175, 175, 175, 175, 173, 177, 119, 177, 
+	117, 183, 184, 180, 193, 216, 219, 220, 
+	221, 243, 247, 247, 247, 247, 248, 248, 
+	248, 246, 250, 194, 250, 193, 255, 256, 
+	252, 263, 287, 291, 292, 294, 295, 296, 
+	297, 298, 299, 300, 301, 293, 303, 303, 
+	304, 305, 306, 307, 308, 309, 310, 312, 
+	313, 314, 315, 316, 317, 311, 319, 319, 
+	320, 321, 322, 323, 324, 325, 327, 328, 
+	329, 330, 331, 332, 326, 334, 334, 335, 
+	336, 337, 338, 290, 340, 340, 341, 365, 
+	369, 370, 372, 373, 374, 375, 376, 377, 
+	378, 379, 371, 381, 381, 382, 383, 384, 
+	385, 386, 388, 389, 390, 391, 392, 393, 
+	387, 395, 395, 396, 397, 398, 399, 401, 
+	402, 403, 404, 405, 406, 400, 408, 408, 
+	409, 410, 368, 412, 412, 413, 264, 415, 
+	263, 420, 421, 417, 429, 461, 466, 467, 
+	469, 470, 471, 472, 473, 474, 475, 476, 
+	468, 478, 478, 479, 480, 481, 482, 483, 
+	484, 485, 487, 488, 489, 490, 491, 492, 
+	486, 494, 494, 495, 496, 497, 498, 499, 
+	500, 502, 503, 504, 505, 506, 507, 501, 
+	509, 509, 510, 511, 512, 513, 465, 515, 
+	515, 516, 548, 553, 554, 556, 557, 558, 
+	559, 560, 561, 562, 563, 555, 565, 565, 
+	566, 567, 568, 569, 570, 572, 573, 574, 
+	575, 576, 577, 571, 579, 579, 580, 581, 
+	582, 583, 585, 586, 587, 588, 589, 590, 
+	584, 592, 592, 593, 594, 552, 596, 596, 
+	597, 430, 598, 429,  51, 600,  51, 600, 
+	  0, };
 S_F_MAP src_file0 [] = {
 	{ "-", 0, 0 },
-	{ "wedding.pml", 1, 293 },
-	{ "-", 294, 295 }
+	{ "wedding.pml", 1, 303 },
+	{ "-", 304, 305 }
 };
 uchar reached0 [] = {
-	  0,   1,   0,   1,   0,   0,   1,   0, 
-	  0,   1,   0,   0,   1,   0,   0,   0, 
-	  1,   0,   0,   1,   0,   1,   0,   0, 
-	  1,   0,   0,   1,   0,   0,   1,   0, 
-	  0,   0,   1,   0,   0,   1,   0,   1, 
-	  0,   1,   0,   0,   0,   1,   1,   0, 
-	  0,   0,   1,   0,   0,   0,   0,   1, 
-	  0,   1,   1,   0,   1,   0,   1,   0, 
-	  0,   0,   1,   1,   0,   0,   0,   1, 
-	  0,   0,   0,   1,   0,   1,   1,   0, 
+	  0,   1,   0,   1,   0,   1,   0,   1, 
+	  1,   0,   1,   0,   0,   1,   0,   0, 
+	  1,   0,   0,   0,   1,   0,   0,   0, 
 	  1,   0,   1,   1,   0,   1,   0,   0, 
+	  1,   0,   0,   1,   0,   0,   0,   1, 
+	  0,   0,   0,   1,   0,   1,   1,   1, 
+	  0,   0,   0,   1,   1,   0,   0,   0, 
+	  1,   0,   0,   0,   0,   1,   0,   1, 
+	  0,   1,   0,   1,   1,   1,   0,   0, 
+	  0,   1,   1,   0,   0,   0,   1,   0, 
+	  0,   0,   1,   0,   1,   0,   1,   0, 
+	  1,   1,   1,   1,   0,   1,   0,   0, 
 	  0,   1,   0,   0,   0,   0,   1,   0, 
 	  0,   0,   0,   0,   0,   1,   0,   1, 
 	  0,   0,   1,   0,   0,   0,   1,   0, 
@@ -639,26 +660,28 @@ uchar reached0 [] = {
 	  0,   1,   0,   0,   0,   1,   0,   1, 
 	  0,   0,   1,   0,   0,   0,   1,   0, 
 	  0,   0,   0,   1,   0,   0,   0,   1, 
-	  1,   0,   1,   0,   1,   1,   0,   1, 
-	  0,   0,   0,   1,   0,   0,   0,   0, 
+	  0,   1,   0,   1,   1,   1,   1,   0, 
+	  1,   0,   0,   0,   1,   0,   0,   0, 
+	  0,   1,   0,   0,   0,   0,   0,   0, 
+	  1,   0,   1,   0,   0,   1,   0,   0, 
+	  0,   1,   0,   0,   0,   0,   0,   1, 
+	  0,   1,   0,   0,   1,   0,   0,   0, 
 	  1,   0,   0,   0,   0,   0,   0,   1, 
-	  0,   1,   0,   0,   1,   0,   0,   0, 
-	  1,   0,   0,   0,   0,   0,   1,   0, 
-	  1,   0,   0,   1,   0,   0,   0,   1, 
-	  0,   0,   0,   0,   0,   0,   1,   0, 
-	  0,   1,   1,   0,   1,   0,   0,   0, 
-	  1,   0,   0,   0,   0,   1,   0,   0, 
-	  0,   0,   1,   0,   1,   0,   0,   1, 
-	  0,   0,   0,   1,   0,   0,   0,   1, 
-	  0,   1,   0,   0,   1,   0,   0,   0, 
-	  1,   0,   0,   0,   0,   1,   0,   0, 
-	  0,   1,   0,   1,   1,   0,   0, };
+	  0,   0,   1,   1,   0,   1,   0,   0, 
+	  0,   1,   0,   0,   0,   0,   1,   0, 
+	  0,   0,   0,   1,   0,   1,   0,   0, 
+	  1,   0,   0,   0,   1,   0,   0,   0, 
+	  1,   0,   1,   0,   0,   1,   0,   0, 
+	  0,   1,   0,   0,   0,   0,   1,   0, 
+	  0,   0,   1,   0,   0,   1,   1,   0, 
+	  0, };
 uchar *loopstate0;
-uchar reached7[3];  /* np_ */
-uchar *loopstate7;  /* np_ */
+uchar reached8[3];  /* np_ */
+uchar *loopstate8;  /* np_ */
 struct {
 	int tp; short *src;
 } src_all[] = {
+	{ 7, &src_ln7[0] },
 	{ 6, &src_ln6[0] },
 	{ 5, &src_ln5[0] },
 	{ 4, &src_ln4[0] },
@@ -669,6 +692,7 @@ struct {
 	{ 0, (short *) 0 }
 };
 S_F_MAP *flref[] = {
+	src_file7,
 	src_file6,
 	src_file5,
 	src_file4,
@@ -684,7 +708,7 @@ struct {
 	{ (char *) 0, "" }
 };
 
-short Air[] = {  (short) Air0, (short) Air1, (short) Air2, (short) Air3, (short) Air4, (short) Air5, (short) Air6, (short) Air7 };
+short Air[] = {  (short) Air0, (short) Air1, (short) Air2, (short) Air3, (short) Air4, (short) Air5, (short) Air6, (short) Air7, (short) Air8 };
 char *procname[] = {
    "Chosed",
    "P1",
@@ -693,6 +717,7 @@ char *procname[] = {
    "P4",
    "P5",
    "P6",
+   "f2",
    ":np_:",
 	0
 };
@@ -707,19 +732,20 @@ int Btypes[] = {
    3,	/* P4 */
    3,	/* P5 */
    3,	/* P6 */
+   1,	/* f2 */
    0	/* :np_: */
 };
 
 uchar spin_c_typ[NCLAIMS]; /* claim-types */
-uchar *accpstate[8];
-uchar *progstate[8];
-uchar *loopstate[8];
-uchar *reached[8];
-uchar *stopstate[8];
-uchar *visstate[8];
-short *mapstate[8];
+uchar *accpstate[9];
+uchar *progstate[9];
+uchar *loopstate[9];
+uchar *reached[9];
+uchar *stopstate[9];
+uchar *visstate[9];
+short *mapstate[9];
 #ifdef HAS_CODE
-	int NrStates[8];
+	int NrStates[9];
 #endif
 #ifdef TRIX
 int what_p_size(int);
@@ -882,6 +908,7 @@ addproc(int calling_pid, int priority, int n, int par0, int par1)
 	case 5: j = sizeof(P5); break;
 	case 6: j = sizeof(P6); break;
 	case 7: j = sizeof(P7); break;
+	case 8: j = sizeof(P8); break;
 	default: Uerror("bad proc - addproc");
 	}
 	#ifdef BFS_PAR
@@ -974,14 +1001,30 @@ addproc(int calling_pid, int priority, int n, int par0, int par1)
 	{	((P0 *)_this)->_pid = h;
 	}
 	switch (n) {
-	case 7:	/* np_ */
-		((P7 *)pptr(h))->_t = 7;
-		((P7 *)pptr(h))->_p = 0;
+	case 8:	/* np_ */
+		((P8 *)pptr(h))->_t = 8;
+		((P8 *)pptr(h))->_p = 0;
 #ifdef HAS_PRIORITY
-		((P7 *)pptr(h))->_priority = priority;
+		((P8 *)pptr(h))->_priority = priority;
 #endif
-		reached7[0] = 1;
-		accpstate[7][1] = 1;
+		reached8[0] = 1;
+		accpstate[8][1] = 1;
+		break;
+	case 7:	/* f2 */
+		((P7 *)pptr(h))->_t = 7;
+		((P7 *)pptr(h))->_p = 6;
+#ifdef HAS_PRIORITY
+		((P7 *)pptr(h))->_priority = priority; /* was: 1 */
+#endif
+		reached7[6]=1;
+		src_claim = src_ln7;
+		/* params: */
+		/* locals: */
+#ifdef VAR_RANGES
+#endif
+#ifdef HAS_CODE
+		locinit7(h);
+#endif
 		break;
 	case 6:	/* P6 */
 		((P6 *)pptr(h))->_t = 6;
@@ -1063,11 +1106,11 @@ addproc(int calling_pid, int priority, int n, int par0, int par1)
 		break;
 	case 0:	/* Chosed */
 		((P0 *)pptr(h))->_t = 0;
-		((P0 *)pptr(h))->_p = 290;
+		((P0 *)pptr(h))->_p = 300;
 #ifdef HAS_PRIORITY
 		((P0 *)pptr(h))->_priority = priority; /* was: 1 */
 #endif
-		reached0[290]=1;
+		reached0[300]=1;
 		/* params: */
 		((P0 *)pptr(h))->pair_index = par0;
 		((P0 *)pptr(h))->isWoman = par1;
@@ -1113,6 +1156,7 @@ col_p(int i, char *z)
 	case 5: j = sizeof(P5); break;
 	case 6: j = sizeof(P6); break;
 	case 7: j = sizeof(P7); break;
+	case 8: j = sizeof(P8); break;
 	default: Uerror("bad proctype - collapse");
 	}
 	if (z) x = z; else x = scratch;
@@ -1198,6 +1242,7 @@ run(void)
 	Maxbody = max(Maxbody, ((int) sizeof(P5)));
 	Maxbody = max(Maxbody, ((int) sizeof(P6)));
 	Maxbody = max(Maxbody, ((int) sizeof(P7)));
+	Maxbody = max(Maxbody, ((int) sizeof(P8)));
 	reached[0] = reached0;
 	reached[1] = reached1;
 	reached[2] = reached2;
@@ -1206,6 +1251,7 @@ run(void)
 	reached[5] = reached5;
 	reached[6] = reached6;
 	reached[7] = reached7;
+	reached[8] = reached8;
 	accpstate[0] = (uchar *) emalloc(_nstates0);
 	accpstate[1] = (uchar *) emalloc(_nstates1);
 	accpstate[2] = (uchar *) emalloc(_nstates2);
@@ -1214,6 +1260,7 @@ run(void)
 	accpstate[5] = (uchar *) emalloc(_nstates5);
 	accpstate[6] = (uchar *) emalloc(_nstates6);
 	accpstate[7] = (uchar *) emalloc(_nstates7);
+	accpstate[8] = (uchar *) emalloc(_nstates8);
 	progstate[0] = (uchar *) emalloc(_nstates0);
 	progstate[1] = (uchar *) emalloc(_nstates1);
 	progstate[2] = (uchar *) emalloc(_nstates2);
@@ -1222,6 +1269,7 @@ run(void)
 	progstate[5] = (uchar *) emalloc(_nstates5);
 	progstate[6] = (uchar *) emalloc(_nstates6);
 	progstate[7] = (uchar *) emalloc(_nstates7);
+	progstate[8] = (uchar *) emalloc(_nstates8);
 	loopstate0 = loopstate[0] = (uchar *) emalloc(_nstates0);
 	loopstate1 = loopstate[1] = (uchar *) emalloc(_nstates1);
 	loopstate2 = loopstate[2] = (uchar *) emalloc(_nstates2);
@@ -1230,6 +1278,7 @@ run(void)
 	loopstate5 = loopstate[5] = (uchar *) emalloc(_nstates5);
 	loopstate6 = loopstate[6] = (uchar *) emalloc(_nstates6);
 	loopstate7 = loopstate[7] = (uchar *) emalloc(_nstates7);
+	loopstate8 = loopstate[8] = (uchar *) emalloc(_nstates8);
 	stopstate[0] = (uchar *) emalloc(_nstates0);
 	stopstate[1] = (uchar *) emalloc(_nstates1);
 	stopstate[2] = (uchar *) emalloc(_nstates2);
@@ -1238,6 +1287,7 @@ run(void)
 	stopstate[5] = (uchar *) emalloc(_nstates5);
 	stopstate[6] = (uchar *) emalloc(_nstates6);
 	stopstate[7] = (uchar *) emalloc(_nstates7);
+	stopstate[8] = (uchar *) emalloc(_nstates8);
 	visstate[0] = (uchar *) emalloc(_nstates0);
 	visstate[1] = (uchar *) emalloc(_nstates1);
 	visstate[2] = (uchar *) emalloc(_nstates2);
@@ -1246,6 +1296,7 @@ run(void)
 	visstate[5] = (uchar *) emalloc(_nstates5);
 	visstate[6] = (uchar *) emalloc(_nstates6);
 	visstate[7] = (uchar *) emalloc(_nstates7);
+	visstate[8] = (uchar *) emalloc(_nstates8);
 	mapstate[0] = (short *) emalloc(_nstates0 * sizeof(short));
 	mapstate[1] = (short *) emalloc(_nstates1 * sizeof(short));
 	mapstate[2] = (short *) emalloc(_nstates2 * sizeof(short));
@@ -1254,6 +1305,7 @@ run(void)
 	mapstate[5] = (short *) emalloc(_nstates5 * sizeof(short));
 	mapstate[6] = (short *) emalloc(_nstates6 * sizeof(short));
 	mapstate[7] = (short *) emalloc(_nstates7 * sizeof(short));
+	mapstate[8] = (short *) emalloc(_nstates8 * sizeof(short));
 	stopstate[0][_endstate0] = 1;
 	stopstate[1][_endstate1] = 1;
 	stopstate[2][_endstate2] = 1;
@@ -1262,6 +1314,7 @@ run(void)
 	stopstate[5][_endstate5] = 1;
 	stopstate[6][_endstate6] = 1;
 	stopstate[7][_endstate7] = 1;
+	stopstate[8][_endstate8] = 1;
 #ifdef HAS_CODE
 	NrStates[0] = _nstates0;
 	NrStates[1] = _nstates1;
@@ -1271,12 +1324,14 @@ run(void)
 	NrStates[5] = _nstates5;
 	NrStates[6] = _nstates6;
 	NrStates[7] = _nstates7;
+	NrStates[8] = _nstates8;
 #endif
 
 	Maxbody = max(Maxbody, sizeof(State)-VECTORSZ);
 	if ((Maxbody % WS) != 0)
 		Maxbody += WS - (Maxbody % WS);
 
+	accpstate[7][9] = 1;
 	retrans(0, _nstates0, _start0, src_ln0, reached0, loopstate0);
 	retrans(1, _nstates1, _start1, src_ln1, reached1, loopstate1);
 	retrans(2, _nstates2, _start2, src_ln2, reached2, loopstate2);
@@ -1284,6 +1339,7 @@ run(void)
 	retrans(4, _nstates4, _start4, src_ln4, reached4, loopstate4);
 	retrans(5, _nstates5, _start5, src_ln5, reached5, loopstate5);
 	retrans(6, _nstates6, _start6, src_ln6, reached6, loopstate6);
+	retrans(7, _nstates7, _start7, src_ln7, reached7, loopstate7);
 	if (state_tables)
 	{ if (dodot) exit(0);
 	  printf("\nTransition Type: ");
@@ -12630,6 +12686,7 @@ do_reach(void)
 	r_ck(reached4, _nstates4, 4, src_ln4, src_file4);
 	r_ck(reached5, _nstates5, 5, src_ln5, src_file5);
 	r_ck(reached6, _nstates6, 6, src_ln6, src_file6);
+	r_ck(reached7, _nstates7, 7, src_ln7, src_file7);
 }
 
 void
@@ -12639,7 +12696,8 @@ iniglobals(int calling_pid)
 		now.is_boat_in_center = 0;
 		now.turn = 1;
 		now.local_turn = 1;
-		count = 0;
+		now.final = 0;
+		now.count = 0;
 	{	int l_in;
 		for (l_in = 0; l_in < 6; l_in++)
 		{
@@ -12657,6 +12715,8 @@ iniglobals(int calling_pid)
 		logval("is_boat_in_center", now.is_boat_in_center);
 		logval("turn", now.turn);
 		logval("local_turn", now.local_turn);
+		logval("final", now.final);
+		logval("count", now.count);
 	{	int l_in;
 		for (l_in = 0; l_in < 6; l_in++)
 		{
@@ -12755,6 +12815,7 @@ what_p_size(int t)
 	case 5: j = sizeof(P5); break;
 	case 6: j = sizeof(P6); break;
 	case 7: j = sizeof(P7); break;
+	case 8: j = sizeof(P8); break;
 	default: Uerror("bad proctype");
 	}
 	return j;
@@ -14399,11 +14460,16 @@ c_globals(void)
 	}
 	printf("	bit    turn:	%d\n", now.turn);
 	printf("	bit    local_turn:	%d\n", now.local_turn);
+	printf("	bit    final:	%d\n", now.final);
+	printf("	byte   count:	%d\n", now.count);
 }
 void
 c_locals(int pid, int tp)
 {	/* int i; */
 	switch(tp) {
+	case 7:
+		/* none */
+		break;
 	case 6:
 		/* none */
 		break;
@@ -14446,7 +14512,7 @@ c_chandump(int unused)
 {	unused++; /* avoid complaints */
 }
 
-Trans *t_id_lkup[305];
+Trans *t_id_lkup[325];
 
 
 #ifdef BFS_PAR

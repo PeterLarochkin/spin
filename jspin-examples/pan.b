@@ -4,11 +4,9 @@
 
 		 /* CLAIM f2 */
 ;
+		;
 		
-	case 3: // STATE 1
-		goto R999;
-
-	case 4: // STATE 10
+	case 4: // STATE 6
 		;
 		p_restor(II);
 		;

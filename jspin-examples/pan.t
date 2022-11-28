@@ -26,22 +26,15 @@ settable(void)
 
 	/* proctype 7: f2 */
 
-	trans[7] = (Trans **) emalloc(11*sizeof(Trans *));
+	trans[7] = (Trans **) emalloc(7*sizeof(Trans *));
 
-	trans[7][7]	= settr(321,0,6,1,0,".(goto)", 0, 2, 0);
-	T = trans[7][6] = settr(320,0,0,0,0,"DO", 0, 2, 0);
-	T = T->nxt	= settr(320,0,3,0,0,"DO", 0, 2, 0);
-	    T->nxt	= settr(320,0,4,0,0,"DO", 0, 2, 0);
-	T = trans[ 7][3] = settr(317,2,0,0,0,"ATOMIC", 1, 2, 0);
-	T->nxt	= settr(317,2,1,0,0,"ATOMIC", 1, 2, 0);
-	trans[7][1]	= settr(315,0,6,3,3,"(!(!(((((((((wedding[0]==right_bank)&&(wedding[1]==right_bank))&&(wedding[2]==right_bank))&&(wedding[3]==right_bank))&&(wedding[4]==right_bank))&&(wedding[5]==right_bank))&&(count==10))&&final))))", 1, 2, 0); /* m: 2 -> 6,0 */
-	reached7[2] = 1;
-	trans[7][2]	= settr(0,0,0,0,0,"assert(!(!(!(((((((((wedding[0]==right_bank)&&(wedding[1]==right_bank))&&(wedding[2]==right_bank))&&(wedding[3]==right_bank))&&(wedding[4]==right_bank))&&(wedding[5]==right_bank))&&(count==10))&&final)))))",0,0,0);
-	trans[7][4]	= settr(318,0,6,1,0,"(1)", 0, 2, 0);
-	trans[7][5]	= settr(319,0,6,1,0,"goto T0_init", 0, 2, 0);
-	trans[7][8]	= settr(322,0,9,1,0,"break", 0, 2, 0);
-	trans[7][9]	= settr(323,0,10,1,0,"(1)", 0, 2, 0);
-	trans[7][10]	= settr(324,0,0,4,4,"-end-", 0, 3500, 0);
+	trans[7][4]	= settr(318,0,3,1,0,".(goto)", 0, 2, 0);
+	T = trans[7][3] = settr(317,0,0,0,0,"DO", 0, 2, 0);
+	    T->nxt	= settr(317,0,1,0,0,"DO", 0, 2, 0);
+	trans[7][1]	= settr(315,0,3,3,0,"(!(((((((((wedding[0]==right_bank)&&(wedding[1]==right_bank))&&(wedding[2]==right_bank))&&(wedding[3]==right_bank))&&(wedding[4]==right_bank))&&(wedding[5]==right_bank))&&(count==10))&&final)))", 1, 2, 0);
+	trans[7][2]	= settr(316,0,3,1,0,"goto T0_init", 0, 2, 0);
+	trans[7][5]	= settr(319,0,6,1,0,"break", 0, 2, 0);
+	trans[7][6]	= settr(320,0,0,4,4,"-end-", 0, 3500, 0);
 
 	/* proctype 6: P6 */
 
@@ -106,7 +99,7 @@ settable(void)
 	trans[0][4]	= settr(3,0,300,18,18,"final = 1", 1, 2, 0);
 	T = trans[ 0][7] = settr(6,2,0,0,0,"ATOMIC", 1, 2, 0);
 	T->nxt	= settr(6,2,5,0,0,"ATOMIC", 1, 2, 0);
-	trans[0][5]	= settr(4,4,23,19,19,"(((((turn&&isWoman)&&!(is_boat_in_center))&&(((wedding[(pair_index+1)]==left_bank)&&!(boat_state))||((wedding[(pair_index+1)]==right_bank)&&boat_state)))&&((boat_seats[0]==-(1))||(boat_seats[1]==-(1)))))", 1, 2, 0); /* m: 6 -> 23,0 */
+	trans[0][5]	= settr(4,4,23,19,19,"(((((((((((!((wedding[0]==right_bank))&&(wedding[1]==right_bank))&&(wedding[2]==right_bank))&&(wedding[3]==right_bank))&&(wedding[4]==right_bank))&&(wedding[5]==right_bank))&&turn)&&isWoman)&&!(is_boat_in_center))&&(((wedding[(pair_index+1)]==left_bank)&&!(boat_state))||((wedding[(pair_index+1)]==right_bank)&&boat_state)))&&((boat_seats[0]==-(1))||(boat_seats[1]==-(1)))))", 1, 2, 0); /* m: 6 -> 23,0 */
 	reached0[6] = 1;
 	trans[0][6]	= settr(0,0,0,0,0,"turn = 0",0,0,0);
 	T = trans[ 0][23] = settr(22,2,0,0,0,"ATOMIC", 1, 2, 0);
@@ -137,7 +130,7 @@ settable(void)
 	trans[0][22]	= settr(0,0,0,0,0,"turn = 1",0,0,0);
 	T = trans[ 0][26] = settr(25,2,0,0,0,"ATOMIC", 1, 2, 0);
 	T->nxt	= settr(25,2,24,0,0,"ATOMIC", 1, 2, 0);
-	trans[0][24]	= settr(23,4,42,25,25,"(((((turn&&!(isWoman))&&!(is_boat_in_center))&&(((wedding[pair_index]==left_bank)&&!(boat_state))||((wedding[pair_index]==right_bank)&&boat_state)))&&((boat_seats[0]==-(1))||(boat_seats[1]==-(1)))))", 1, 2, 0); /* m: 25 -> 42,0 */
+	trans[0][24]	= settr(23,4,42,25,25,"(((((((((((!((wedding[0]==right_bank))&&(wedding[1]==right_bank))&&(wedding[2]==right_bank))&&(wedding[3]==right_bank))&&(wedding[4]==right_bank))&&(wedding[5]==right_bank))&&turn)&&!(isWoman))&&!(is_boat_in_center))&&(((wedding[pair_index]==left_bank)&&!(boat_state))||((wedding[pair_index]==right_bank)&&boat_state)))&&((boat_seats[0]==-(1))||(boat_seats[1]==-(1)))))", 1, 2, 0); /* m: 25 -> 42,0 */
 	reached0[25] = 1;
 	trans[0][25]	= settr(0,0,0,0,0,"turn = 0",0,0,0);
 	T = trans[ 0][42] = settr(41,2,0,0,0,"ATOMIC", 1, 2, 0);
@@ -168,7 +161,7 @@ settable(void)
 	trans[0][41]	= settr(0,0,0,0,0,"turn = 1",0,0,0);
 	T = trans[ 0][45] = settr(44,2,0,0,0,"ATOMIC", 1, 2, 0);
 	T->nxt	= settr(44,2,43,0,0,"ATOMIC", 1, 2, 0);
-	trans[0][43]	= settr(42,4,64,31,31,"((((turn&&isWoman)&&!(is_boat_in_center))&&(wedding[(pair_index+1)]==on_boat)))", 1, 2, 0); /* m: 44 -> 64,0 */
+	trans[0][43]	= settr(42,4,64,31,31,"((((((((((!((wedding[0]==right_bank))&&(wedding[1]==right_bank))&&(wedding[2]==right_bank))&&(wedding[3]==right_bank))&&(wedding[4]==right_bank))&&(wedding[5]==right_bank))&&turn)&&isWoman)&&!(is_boat_in_center))&&(wedding[(pair_index+1)]==on_boat)))", 1, 2, 0); /* m: 44 -> 64,0 */
 	reached0[44] = 1;
 	trans[0][44]	= settr(0,0,0,0,0,"turn = 0",0,0,0);
 	T = trans[ 0][64] = settr(63,2,0,0,0,"ATOMIC", 1, 2, 0);
@@ -201,7 +194,7 @@ settable(void)
 	trans[0][59]	= settr(0,0,0,0,0,"turn = 1",0,0,0);
 	T = trans[ 0][67] = settr(66,2,0,0,0,"ATOMIC", 1, 2, 0);
 	T->nxt	= settr(66,2,65,0,0,"ATOMIC", 1, 2, 0);
-	trans[0][65]	= settr(64,4,85,40,40,"((((turn&&!(isWoman))&&!(is_boat_in_center))&&(wedding[pair_index]==on_boat)))", 1, 2, 0); /* m: 66 -> 85,0 */
+	trans[0][65]	= settr(64,4,85,40,40,"((((((((((!((wedding[0]==right_bank))&&(wedding[1]==right_bank))&&(wedding[2]==right_bank))&&(wedding[3]==right_bank))&&(wedding[4]==right_bank))&&(wedding[5]==right_bank))&&turn)&&!(isWoman))&&!(is_boat_in_center))&&(wedding[pair_index]==on_boat)))", 1, 2, 0); /* m: 66 -> 85,0 */
 	reached0[66] = 1;
 	trans[0][66]	= settr(0,0,0,0,0,"turn = 0",0,0,0);
 	T = trans[ 0][85] = settr(84,2,0,0,0,"ATOMIC", 1, 2, 0);
@@ -233,7 +226,7 @@ settable(void)
 	trans[0][80]	= settr(0,0,0,0,0,"turn = 1",0,0,0);
 	T = trans[ 0][88] = settr(87,2,0,0,0,"ATOMIC", 1, 2, 0);
 	T->nxt	= settr(87,2,86,0,0,"ATOMIC", 1, 2, 0);
-	trans[0][86]	= settr(85,4,192,48,48,"((((turn&&!(isWoman))&&is_boat_in_center)&&(wedding[pair_index]==on_boat)))", 1, 2, 0); /* m: 87 -> 192,0 */
+	trans[0][86]	= settr(85,4,192,48,48,"((((((((((!((wedding[0]==right_bank))&&(wedding[1]==right_bank))&&(wedding[2]==right_bank))&&(wedding[3]==right_bank))&&(wedding[4]==right_bank))&&(wedding[5]==right_bank))&&turn)&&!(isWoman))&&is_boat_in_center)&&(wedding[pair_index]==on_boat)))", 1, 2, 0); /* m: 87 -> 192,0 */
 	reached0[87] = 1;
 	trans[0][87]	= settr(0,0,0,0,0,"turn = 0",0,0,0);
 	T = trans[ 0][192] = settr(191,2,0,0,0,"ATOMIC", 1, 2, 0);
@@ -397,7 +390,7 @@ settable(void)
 	trans[0][189]	= settr(0,0,0,0,0,"turn = 1",0,0,0);
 	T = trans[ 0][195] = settr(194,2,0,0,0,"ATOMIC", 1, 2, 0);
 	T->nxt	= settr(194,2,193,0,0,"ATOMIC", 1, 2, 0);
-	trans[0][193]	= settr(192,4,299,79,79,"((((turn&&isWoman)&&is_boat_in_center)&&(wedding[(pair_index+1)]==on_boat)))", 1, 2, 0); /* m: 194 -> 299,0 */
+	trans[0][193]	= settr(192,4,299,79,79,"((((((((((!((wedding[0]==right_bank))&&(wedding[1]==right_bank))&&(wedding[2]==right_bank))&&(wedding[3]==right_bank))&&(wedding[4]==right_bank))&&(wedding[5]==right_bank))&&turn)&&isWoman)&&is_boat_in_center)&&(wedding[(pair_index+1)]==on_boat)))", 1, 2, 0); /* m: 194 -> 299,0 */
 	reached0[194] = 1;
 	trans[0][194]	= settr(0,0,0,0,0,"turn = 0",0,0,0);
 	T = trans[ 0][299] = settr(298,2,0,0,0,"ATOMIC", 1, 2, 0);

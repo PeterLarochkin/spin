@@ -139,10 +139,10 @@ typedef struct S_F_MAP {
 	int upto;
 } S_F_MAP;
 
-#define _nstates7	11	/* f2 */
+#define _nstates7	7	/* f2 */
 #define minseq7	315
-#define maxseq7	324
-#define _endstate7	10
+#define maxseq7	320
+#define _endstate7	6
 
 #define _nstates6	3	/* P6 */
 #define minseq6	313
@@ -539,7 +539,7 @@ typedef struct TRIX_v6 {
 #define _endstate8	2 /* np_ */
 
 #define _start8	0 /* np_ */
-#define _start7	6
+#define _start7	3
 #define _start6	1
 #define _start5	1
 #define _start4	1

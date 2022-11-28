@@ -49,11 +49,13 @@ byte count = 0;
 proctype Chosed(int pair_index; bool isWoman) {
 
 	do 
+	/* когда все приплывут на правый берег */
 	:: atomic {turn && SUCCESS -> 
 			turn = false};
 			final = true
 	/* кейс посадки */
 	:: 	atomic { 
+			!SUCCESS &&
 			turn && 
 			isWoman && 
 			!is_boat_in_center &&
@@ -78,6 +80,7 @@ proctype Chosed(int pair_index; bool isWoman) {
 	
 	/* кейс посадки */
 	:: 	atomic { 
+			!SUCCESS &&
 			turn && 
 			!isWoman && 
 			!is_boat_in_center &&
@@ -101,7 +104,8 @@ proctype Chosed(int pair_index; bool isWoman) {
 			}
 	
 	/* кейс выхода в открытую реку */
-	:: 	atomic { 	
+	:: 	atomic { 
+			!SUCCESS &&	
 			turn && isWoman &&  
 			!is_boat_in_center &&
 			(wedding[pair_index + 1] == on_boat) 
@@ -177,7 +181,8 @@ proctype Chosed(int pair_index; bool isWoman) {
 		fi }
 		
 	/* кейс выхода в открытую реку */
-	:: 	atomic { 	
+	:: 	atomic {
+			!SUCCESS && 	
 			turn && !isWoman &&  
 			!is_boat_in_center &&
 			(wedding[pair_index] == on_boat) 
@@ -249,7 +254,8 @@ proctype Chosed(int pair_index; bool isWoman) {
 			fi
 		fi}
 	/* кейс приплытия на берег */
-	:: 	atomic { 	
+	:: 	atomic {
+			!SUCCESS && 	
 			turn && !isWoman &&  
 			is_boat_in_center &&
 			(wedding[pair_index] == on_boat) 
@@ -414,7 +420,8 @@ proctype Chosed(int pair_index; bool isWoman) {
 		fi
 		}
 	/* кейс приплытия на берег */
-	:: 	atomic { 	
+	:: 	atomic {
+			!SUCCESS && 	
 			turn && isWoman &&  
 			is_boat_in_center &&
 			(wedding[pair_index + 1] == on_boat) 

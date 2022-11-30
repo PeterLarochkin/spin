@@ -1,0 +1,11 @@
+*.trail
+run*
+pan*
+jspin*
+*.bat
+config.cfg
+docs
+*Spin
+*pider*
+*.tmp
+txt

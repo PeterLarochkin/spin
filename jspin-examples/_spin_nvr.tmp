@@ -1,7 +1,0 @@
-never f2 {    /* !(! ([] (! (((((((((wedding[0]==right_bank)) && ((wedding[1]==right_bank))) && ((wedding[2]==right_bank))) && ((wedding[3]==right_bank))) && ((wedding[4]==right_bank))) && ((wedding[5]==right_bank))) && ((count==10))) && (final))))) */
-accept_init:
-T0_init:
-	do
-	:: ((! (((((((((wedding[0]==right_bank)) && ((wedding[1]==right_bank))) && ((wedding[2]==right_bank))) && ((wedding[3]==right_bank))) && ((wedding[4]==right_bank))) && ((wedding[5]==right_bank))) && ((count==10))) && (final)))) -> goto T0_init
-	od;
-}
